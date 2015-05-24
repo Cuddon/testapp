@@ -1,0 +1,21 @@
+/* CSS declarations go here */
+
+/*
+div {
+    border-color: darkgrey;
+    border-style: dotted;
+}
+
+.row {
+    padding: 10px;
+    border-color: blueviolet;
+}
+*/
+
+body {
+    padding-bottom: 70px;
+
+    background-color: white;
+    color: teal;
+}
+

@@ -1,0 +1,14 @@
+<template name="ApplicationLayout">
+    {{> topnav}}
+
+    <!-- Content container -->
+    <div class="container-fluid">
+        <!-- Error messages - dismissable -->
+        <div>{{> errors}}</div>
+
+        <!-- Variable content container -->
+        <div>{{> yield "content"}}</div>
+    </div>
+    {{> footer}}
+
+</template>
