@@ -3,4 +3,4 @@
  */
 
 // On Client and Server
-Projects = new Mongo.Collection("projects");
+Projects = new Mongo.Collection("projects_collection");
