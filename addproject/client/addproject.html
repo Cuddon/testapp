@@ -1,24 +1,22 @@
 
-<!-- View/edit project -->
-<template name="project">
-
-    <h1> Project></h1>
+<!-- Add a new project -->
+<template name="addproject">
     <div class="container-fluid">
         <form class="form-horizontal">
             <fieldset>
-                <legend>Project {{name}}</legend>
+                <legend>Add a new project</legend>
 
                 <div class="form-group">
                     <label for="name" class="col-lg-2 control-label">Project Name</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="name" placeholder="{{name}}" disabled>
+                        <input type="text" class="form-control" id="name" placeholder="Name of new project">
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="description" class="col-lg-2 control-label">Short Description</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="description" placeholder="{{description}}" disabled>
+                        <input type="text" class="form-control" id="description" placeholder="Short description of the project">
                     </div>
                 </div>
 
@@ -31,16 +29,19 @@
                 </div>
 
                 <div class="form-group">
+                    <label for="logo" class="col-lg-2 control-label">Project Logo</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="logo" placeholder="Enter a url">
+                    </div>
+                </div>
+
+                <div class="form-group">
                     <div class="col-lg-10 col-lg-offset-2">
                         <button class="btn btn-default cancel-button">Cancel</button>
-                        <button class="btn btn-default edit-button">Edit</button>
                         <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </fieldset>
         </form>
-
-        <h2>Models go here</h2>
-        <p>List of models</p>
     </div>
 </template>

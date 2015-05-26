@@ -1,0 +1,45 @@
+
+<template name="projects">
+    <!-- Add Project floating button -->
+    <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add"></a>
+
+    <!-- List the projects, one per panel -->
+    <h2>Projects</h2>
+    <div class="list-group">
+        {{#each projects}}
+            {{> projectslist}}
+        {{/each}}
+    </div>
+</template>
+
+
+<template name="projectslist">
+    <!-- Details of the project -->
+    <div class="list-group-item project-item">
+        <div class="row-picture">
+            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">{{name}}</h4>
+            <p class="list-group-item-text">{{description}}</p>
+        </div>
+    </div>
+
+    <!-- Actions on the selected project -->
+    <a href="#" class="btn btn-flat btn-success btn-sm">Open</a>
+
+    <!-- Other actions on the selected project -->
+    <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-flat btn-primary btn-sm">Primary</a>
+        <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)">Clone</a></li>
+            <li><a href="javascript:void(0)">Share</a></li>
+            <li><a href="javascript:void(0)">Edit description</a></li>
+            <li class="divider"></li>
+            <li><a href="javascript:void(0)">Delete</a></li>
+        </ul>
+    </div>
+
+    <div class="list-group-separator"></div>
+</template>

@@ -18,7 +18,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/myprojects">Projects</a></li>
+                    <li><a href="{{ pathFor 'projects' }}">Projects</a></li>
                     <li><a href="auth">Account</a></li>
                     <li><a href="javascript:void(0)">Messages <span class="badge">3</span></a></li>
 
@@ -34,7 +34,7 @@
                             <li><a href="#">One more separated link</a></li>
                         </ul>
                     </li>
-                    <li><a href="about">About</a></li>
+                    <li><a href="{{ pathFor 'about' }}">About</a></li>
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->
