@@ -1,19 +1,21 @@
 
-<template name="projects">
+<template name="projects_list_template">
     <!-- Add Project floating button -->
     <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add"></a>
 
     <!-- List the projects, one per panel -->
     <h2>Projects</h2>
     <div class="list-group">
-        {{#each projects}}
-            {{> projectslist}}
+        <p>Projects list goes here</p>
+        {{#each projectsList}}
+            <p>a project goes here</p>
+            {{> project_item_template}}
         {{/each}}
     </div>
 </template>
 
 
-<template name="projectslist">
+<template name="project_item_template">
     <!-- Details of the project -->
     <div class="list-group-item project-item">
         <div class="row-picture">

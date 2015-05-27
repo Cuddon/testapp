@@ -12,7 +12,8 @@ Template.addproject.events({
       name:         event.target.name.value,
       description:  event.target.description.value,
       comment:      event.target.comment.value,
-      logo:        event.target.logo.value,
+      logo:         event.target.logo.value,
+      owner:        this.userId,
       createdAt:    new Date() // current time
       // id is automatically created by MongoDB
     };
@@ -20,7 +21,7 @@ Template.addproject.events({
     if (!project.logo) {
       project.logo = "http://lorempixel.com/56/56/nature";     // Default project logo. 56x56 px
     }
-    Projects.insert(project);
+    ProjectsCollection.insert(project);
 
     // Clear form
     //event.target.name.value = "";

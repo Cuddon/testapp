@@ -3,15 +3,10 @@
  */
 
 // Display projects for a specific user
-Router.route('projects', {
-  path: '/projects',
-  yieldTemplates: {
-    // Render the template into the content area
-    projects: {to: 'content'}
-  },
-  waitOn: function () {
-    //Session.set('activity', "Projects");
-    return Meteor.subscribe('projects');
-  }
+
+Router.route('/projects', function () {
+  // Render the about page into the content area
+  this.render('projects_list_template', {to: 'content'});
+  Session.set('activity', "My Projects");
 });
 

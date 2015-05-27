@@ -2,7 +2,7 @@
  * Created by Andrew on 26/05/2015.
  */
 
-Template.projects.events({
+Template.projects_list_template.events({
 
   // A project card/list item is clicked
   "click div .project-item": function () {

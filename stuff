@@ -1,0 +1,78 @@
+#####
+
+// Pass data into a template
+
+{{> message text='Message text'}}
+
+
+or
+
+Template.messages.helpers({
+  messages: [
+    { text: "All these messages" },
+    { text: "Uses the same template" },
+    { text: "But have a different data context" },
+    { text: "It's why these messages are all different!" },
+    { text: "Hey!" },
+    { text: "What's up man!" },
+    { text: "Hello" }
+  ]
+});
+
+{{#each messages}}
+    {{> message text=text}}
+{{/each}}
+
+
+-----------
+Meteor Simple Schema
+
+------------------
+//Define a new Collection on both the client and the server
+Messages = new Mongo.Collection("messages");
+
+// Insert a document
+Messages.insert({greeting: "hello"}, function() {});
+
+// Mongo shell inside meteor
+meteor mongo
+show databases
+-> You should see a meteor database
+show collections
+-> should see a messages Collection
+
+// Display all documents in the messages collection
+db.messages.find()
+
+
+----------------
+Meteor startup - can be used to check and refresh data and initialise variables
+
+Meteor.startup(function () {
+    if (Messages.find().count() === 0) {
+          // No messages so create 10 dummy ones
+        for( var i = 0; i < 10; i++ ) {
+            Messages.insert({text: "A dummy message"});
+        }
+    }
+});
+
+--------------------
+If you want to delete your entire database and start from scratch, quit your application and run meteor reset
+
+Robomongo is the MongoDB management tool.
+
+-------------------------------
+Template.messages.helpers({
+  messages: Messages.find({})
+});
+
+
+Andrew Cuddon | Senior Program Manager
+Australian Unity Limited
+114 Albert Road | South Melbourne  VIC  3205
+T +613 8682  6052 | M 0409 093 963
+W www.australianunity.com.au<http://www.australianunity.com.au/>
+E acuddon@australianunity.com.au<mailto:acuddon@australianunity.com.au>
+[cid:image002.jpg@01D098A5.BBF62180]<http://intranet.australianunity.net.au/prj/hris/Pages/home.aspx>
+
