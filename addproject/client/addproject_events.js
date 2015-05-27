@@ -13,7 +13,7 @@ Template.addproject.events({
       description:  event.target.description.value,
       comment:      event.target.comment.value,
       logo:         event.target.logo.value,
-      owner:        this.userId,
+      userId:       Meteor.userId(),
       createdAt:    new Date() // current time
       // id is automatically created by MongoDB
     };
