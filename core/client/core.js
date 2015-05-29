@@ -4,6 +4,10 @@
  */
 
 
+Meteor.startup(function () {
+    // Anything we need to do before much else happens
+});
+
 
 Template.topnav.helpers({
   appName: function(){

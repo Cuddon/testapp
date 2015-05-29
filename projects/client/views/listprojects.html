@@ -1,29 +1,29 @@
 
-<template name="projects_list_template">
+<!-- Display all projects for the urrent user -->
+<template name="listProjects">
     <!-- Add Project floating button -->
     <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add"></a>
 
     <!-- List the projects, one per panel -->
     <h2>Projects</h2>
     <div class="list-group">
-        <p>Projects list goes here</p>
         {{#each projectsList}}
-            <p>a project goes here</p>
-            {{> project_item_template}}
+            {{> projectItem}}
         {{/each}}
     </div>
 </template>
 
 
-<template name="project_item_template">
+<template name="projectItem">
     <!-- Details of the project -->
     <div class="list-group-item project-item">
         <div class="row-picture">
-            <img class="circle" src="http://lorempixel.com/56/56/people/1" alt="icon">
+            <img class="circle" src="{{logo}}" alt="icon">
         </div>
         <div class="row-content">
             <h4 class="list-group-item-heading">{{name}}</h4>
             <p class="list-group-item-text">{{description}}</p>
+            <p class="list-group-item-text">{{_id}}</p>
         </div>
     </div>
 
@@ -45,3 +45,4 @@
 
     <div class="list-group-separator"></div>
 </template>
+
