@@ -2,30 +2,29 @@
 <!-- View/edit project -->
 <template name="viewEditProject">
 
-    <h1>Project: {{id}}</h1>
+    <h2>Project: {{name}}</h2>
     <div class="container-fluid">
         <form class="form-horizontal">
             <fieldset>
-                <legend>Project {{name}}</legend>
-
+                <img class="circle" src="{{logo}}" alt="icon">
                 <div class="form-group">
                     <label for="name" class="col-lg-2 control-label">Project Name</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="name" placeholder="{{name}}" disabled>
+                        <input type="text" class="form-control" id="name" value="{{name}}" >
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="description" class="col-lg-2 control-label">Short Description</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="description" placeholder="{{description}}" disabled>
+                        <input type="text" class="form-control" id="description" value="{{description}}" disabled>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label for="comment" class="col-lg-2 control-label">Comments</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
+                        <textarea class="form-control" rows="5" id="comment" value="{{comment}}"></textarea>
                         <span class="help-block">A longer block of text to describe it in more detail.</span>
                     </div>
                 </div>
@@ -34,13 +33,50 @@
                     <div class="col-lg-10 col-lg-offset-2">
                         <button class="btn btn-default cancel-button">Cancel</button>
                         <button class="btn btn-default edit-button">Edit</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary save-button" disabled>Save</button>
                     </div>
                 </div>
             </fieldset>
         </form>
 
         <h2>Models go here</h2>
+        <!-- Add Model floating button -->
+        <a href="/addmodel" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right"></a>
+
         <p>List of models</p>
+        {{#each modelsList}}
+            {{> modelItem}}
+        {{/each}}
     </div>
+</template>
+
+<template name="modelItem">
+    <!-- Details of a model -->
+    <div class="list-group-item model-item">
+        <div class="row-picture">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">{{name}}</h4>
+            <p class="list-group-item-text">{{description}}</p>
+            <p class="list-group-item-text">{{_id}}</p>
+        </div>
+    </div>
+
+    <!-- Actions on the selected model -->
+    <a href="#" class="btn btn-flat btn-success btn-sm">Open</a>
+
+    <!-- Other actions on the selected project -->
+    <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-flat btn-primary btn-sm">Primary</a>
+        <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="javascript:void(0)">Clone</a></li>
+            <li><a href="javascript:void(0)">Share</a></li>
+            <li><a href="javascript:void(0)">Edit description</a></li>
+            <li class="divider"></li>
+            <li><a href="javascript:void(0)">Delete</a></li>
+        </ul>
+    </div>
+
+    <div class="list-group-separator"></div>
 </template>

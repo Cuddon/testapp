@@ -5,12 +5,10 @@
 Template.listProjects.events({
 
   // A project card/list item is clicked
-  "click div .project-item": function () {
-
+  "click div .project-item, click a .project-item": function () {
     var projectId = this._id;
-    console.log('Selected project: ' + projectId);
 
-    //Open the project view/edit template
+    //Open the selected project view/edit template
     Router.go('project', {_id: projectId});
 
     // Prevent default form submit
@@ -23,7 +21,44 @@ Template.listProjects.events({
 
     // Prevent default form action
     return false;
+  },
+
+  // Clone button is clicked
+  "click .project-clone": function () {
+    alert("Not implemented");
+
+    // Prevent default form action
+    //return false;
+  },
+
+  // Share button is clicked
+  "click .project-share": function () {
+    alert("Not implemented");
+
+    // Prevent default form action
+    //return false;
+  },
+
+  // Delete button is clicked
+  "click .project-delete": function () {
+    var projectId = this._id;
+
+    var conf = confirm("Please confirm.\nDo you want to delete project: " + this.name);
+    if (conf === true) {
+      // Add the new project to the database using a server method
+      Meteor.call('deleteProject',projectId, function(error){
+        if (error) {
+          // Display the error to the client
+          showError(error.error, error.reason)
+        }
+      });
+    }
+
+    // Prevent default form action
+    //return false;
   }
+
+
 });
 
 
@@ -40,19 +75,65 @@ Template.addProject.events({
         };
 
         // Add the new project to the database using a server method
-        Meteor.call('addProject',project);
-
-        Router.go("projects");
+        Meteor.call('addProject',project, function(error){
+          if (error) {
+            // Display the error to the client, and stay on the same page
+            showError(error.error, error.reason)
+          } else {
+            // Success
+            Router.go("projects");
+          }
+        });
 
         // Prevent default form submit
         return false;
     },
 
-    // Add projecct Cancel button is clicked, go back to projects list
+    // addProject Cancel button is clicked, go back to projects list
     "click .cancel-button": function () {
         Router.go("projects");
 
         // Prevent default form action
         return false;
     }
+});
+
+Template.viewEditProject.events({
+
+  // Cancel button is clicked, go back to the projects list
+  "click .cancel-button": function () {
+    Router.go("projects");
+
+    // Prevent default form action
+    return false;
+  },
+
+  // Edit button is clicked
+  "click .edit-button": function () {
+    alert("Not yet implemented");
+    $('#name').removeAttr('disabled');
+
+    // Enable the save button and disable the edit button (as we are currently editing the project details)
+    $('button .edit-button').attr('disabled', 'disabled');
+    $('button .save-button').removeAttr('disabled');
+
+
+    // Prevent default form action
+    return false;
+  },
+
+  // Save button is clicked
+  "click .save-button": function () {
+    alert("Not yet implemented");
+    var name = $('#name').val();
+
+    // Disable the save button and enable the edit button (the save button is enabled when we are editing the projec details)
+    $('button .save-button').attr('disabled', 'disabled');
+    $('button .edit-button').removeAttr('disabled');
+
+    // Prevent default form action
+    return false;
+  }
+
+
 });
