@@ -10,7 +10,7 @@
                 <div class="form-group">
                     <label for="name" class="col-lg-2 control-label">Project Name</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="name" value="{{name}}" >
+                        <input type="text" class="form-control" id="name" value="{{name}}" disabled>
                     </div>
                 </div>
 
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <label for="comment" class="col-lg-2 control-label">Comments</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" id="comment" value="{{comment}}"></textarea>
+                        <textarea class="form-control" rows="5" id="comment" value="{{comment}}" disabled></textarea>
                         <span class="help-block">A longer block of text to describe it in more detail.</span>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
 
         <h2>Models go here</h2>
         <!-- Add Model floating button -->
-        <a href="/addmodel" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right"></a>
+        <a href="#" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model"></a>
 
         <p>List of models</p>
         {{#each modelsList}}

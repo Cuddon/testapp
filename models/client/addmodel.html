@@ -1,0 +1,56 @@
+
+<!-- Add a new model -->
+<template name="addModel">
+    <div class="container-fluid">
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>Add a new model for project: {{name}} ({{_id}})</legend>
+
+                <div class="form-group">
+                    <label for="modelname" class="col-lg-2 control-label">Model Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelname" placeholder="Name of new model">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modeldescription" class="col-lg-2 control-label">Short Description</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modeldescription" placeholder="Short description of the model">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modeltype" class="col-lg-2 control-label">Model Type</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modeltype" placeholder="Type of model - drop down list">
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="modelcomment" class="col-lg-2 control-label">Comments</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="5" id="modelcomment"></textarea>
+                        <span class="help-block">A longer block of text to describe it in more detail.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelicon" class="col-lg-2 control-label">Project Logo</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelicon" placeholder="Enter a url">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button class="btn btn-default cancel-button">Cancel</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+</template>

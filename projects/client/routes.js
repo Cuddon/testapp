@@ -56,9 +56,14 @@ Router.route('/project/:_id', {
   },
 
   action: function() {
-    // Render the template into the content area
-    this.render('viewEditProject', {to: 'content'});
-    Session.set('activity', "View/Edit project");
+    if (Meteor.userId()) {
+      this.render('viewEditProject', {to: 'content'});
+      Session.set('activity', "View/Edit project");
+    } else {
+      alert ("You must be logged in to add a new project");
+      this.render('Home', {to: 'content'});
+      Session.set('activity', "Home");
+    }
   }
 });
 
