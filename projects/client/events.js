@@ -102,7 +102,7 @@ Template.addProject.events({
 Template.viewEditProject.events({
 
   // Cancel button is clicked, go back to the previous screen (typically the user's projects list)
-  "click .cancel-button": function (event) {
+  "click .close-button": function (event) {
       // Go back to previous screen
       history.back();
 
