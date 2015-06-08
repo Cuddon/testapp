@@ -1,0 +1,102 @@
+<!--TODO View/Edit model: Review fields-->
+
+
+<!-- Add a new model -->
+<template name="viewEditModel">
+    <div class="container-fluid">
+        <form class="form-horizontal">
+            <fieldset>
+                <legend>View/Edit a model for project: {{project.name}} ({{project._id}})</legend>
+
+                <!-- Model Name -->
+                <div class="form-group">
+                    <label for="modelName" class="col-lg-2 control-label">Model Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelName" value="{{model.name}}">
+                    </div>
+                </div>
+
+                <!-- Model Description -->
+                <div class="form-group">
+                    <label for="modelDescription" class="col-lg-2 control-label">Short Description</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelDescription" value="{{model.description}}">
+                    </div>
+                </div>
+
+                <!-- Model Type -->
+                <div class="form-group">
+                    <label for="modelType" class="col-lg-2 control-label">Model Type</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelType" value="{{model.type}}">
+                    </div>
+                </div>
+
+
+                <!-- Comment -->
+                <div class="form-group">
+                    <label for="modelComment" class="col-lg-2 control-label">Comments</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="5" id="modelComment" value="{{model.comment}}"></textarea>
+                        <span class="help-block">A longer block of text to describe it in more detail.</span>
+                    </div>
+                </div>
+
+                <!-- Icon -->
+                <div class="form-group">
+                    <label for="modelIcon" class="col-lg-2 control-label">Model Icon</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="modelIcon" value="{{model.icon}}">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button class="btn btn-default close-button">Close</button>
+                        <button class="btn btn-default edit-button">Edit</button>
+                        <button type="submit" class="btn btn-primary save-button" disabled>Save</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <h2>Steps go here</h2>
+        <!-- Add a Step floating button -->
+        <a href="#" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-step"></a>
+
+        <p>List of steps</p>
+        {{#each stepList}}
+            {{> stepItem}}
+        {{/each}}
+
+    </div>
+</template>
+
+
+<template name="stepItem">
+    <!-- Details of a model -->
+    <div class="list-group-item step-item">
+        <div class="row-picture">
+        </div>
+        <div class="row-content">
+            <h4 class="list-group-item-heading">{{name}}</h4>
+            <p class="list-group-item-text">{{description}}</p>
+        </div>
+    </div>
+
+    <!-- Actions on the selected model -->
+    <a href="#" class="btn btn-flat btn-success btn-sm step-item">Open</a>
+
+    <!-- Other actions on the selected project -->
+    <div class="btn-group">
+        <a href="javascript:void(0)" class="btn btn-flat btn-primary btn-sm">Primary</a>
+        <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a href="#" class="step-clone">Clone</a></li>
+            <li class="divider"></li>
+            <li><a href="#" class="step-delete">Delete</a></li>
+        </ul>
+    </div>
+
+    <div class="list-group-separator"></div>
+</template>

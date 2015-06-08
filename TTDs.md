@@ -3,11 +3,13 @@
 ## Build
 1. Change names of project fields from e.g. 'name' to 'projectname' so they can coexist on templates with models and steps
 2. Create a texteditor config file to say 4 space indents
+3. rename icon/logo fields consistently to img
 3. Messages from the system and marketing messages
 4. Administrator console
 5. Check a project's integrity
 6. Run a model
 7. Log all user actions (probably via the function that check a user's permissions to see/do something
+8. Optional v mandatory fields
 
 
 ## Accounts
@@ -20,8 +22,24 @@ Emails for support and contact
 Forum (use Slack and/or Periscope or ....)
 How to videos (30 seconds each)
 FAQ
-Why this? What is isn't
+Why this? What it isn't
 Help
+
+## Model Types (or are these step types
+Extract
+Validate
+Cleanse
+Transform
+Load
+Reconcile
+Audit
+Explore
+Summarise
+
+## Sharing
+* Share entire projects to other users
+* Share models between projects by linking them using a LINK STEP type (e.g. an import and validation model can be used by several other models)
+
 
 ## Community
 Blog

@@ -1,10 +1,11 @@
+<!--TODO Add model: Review fields-->
 
 <!-- Add a new model -->
 <template name="addModel">
     <div class="container-fluid">
         <form class="form-horizontal">
             <fieldset>
-                <legend>Add a new model for project: {{name}} ({{_id}})</legend>
+                <legend>Add a new model for project: {{project.name}} ({{project._id}})</legend>
 
                 <!-- Model Name -->
                 <div class="form-group">
@@ -42,7 +43,7 @@
 
                 <!-- Icon -->
                 <div class="form-group">
-                    <label for="modelicon" class="col-lg-2 control-label">Project Logo</label>
+                    <label for="modelicon" class="col-lg-2 control-label">Model Icon</label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="modelicon" placeholder="Enter a url">
                     </div>

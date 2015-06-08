@@ -13,25 +13,32 @@
 Meteor.publish("projects", function () {
     //Check that the user is logged in
     // this.userId is null if no user is logged in
-    //check(this.userId, String);
-  if(!this.userId){
-    // User is not logged in so do not return anything
-    return [];
-  }
+    if (!this.userId) {
+        // User is not logged in so do not return anything
+        return [];
+    }
+    check(this.userId, String);
 
     return ProjectsCollection.find({
         $or: [
-            { ownerId: this.userId },
-            { sharedToId: this.userId }
+            {ownerId: this.userId},
+            {sharedToId: this.userId}
         ]
     });
 });
 
+/*
 
 // Publish a single project,which must be owned by the user or shared to him/her
 Meteor.publish("project", function (projectId) {
     // Check argument
-    //check(projectId, String);
+    if (!this.userId) {
+        // User is not logged in so do not return anything
+        return [];
+    }
+
+    check(this.userId, String);
+    check(projectId, String);
 
     return ProjectsCollection.find({
         _id: projectId,
@@ -41,5 +48,6 @@ Meteor.publish("project", function (projectId) {
         ]
     });
 });
+*/
 
 

@@ -1,0 +1,55 @@
+
+<!-- View/edit project -->
+<template name="viewEditProject">
+
+    <h2>Project: {{project.name}}</h2>
+    <div class="container-fluid">
+        <form class="form-horizontal">
+            <fieldset>
+                <img class="circle" src="{{project.logo}}" alt="icon">
+
+                <!-- project name -->
+                <div class="form-group">
+                    <label for="projectName" class="col-lg-2 control-label">Project Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="projectName" value="{{project.name}}" disabled>
+                    </div>
+                </div>
+
+                <!-- project description -->
+                <div class="form-group">
+                    <label for="projectDescription" class="col-lg-2 control-label">Short Description</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="projectDescription" value="{{project.description}}" disabled>
+                    </div>
+                </div>
+
+                <!-- project comment -->
+                <div class="form-group">
+                    <label for="projectComment" class="col-lg-2 control-label">Comments</label>
+                    <div class="col-lg-10">
+                        <textarea class="form-control" rows="5" id="projectComment" value="{{project.comment}}" disabled></textarea>
+                        <span class="help-block">A longer block of text to describe it in more detail.</span>
+                    </div>
+                </div>
+
+                <!-- Buttons -->
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button class="btn btn-default close-button">Close</button>
+                        <button class="btn btn-default edit-button">Edit</button>
+                        <button type="submit" class="btn btn-primary save-button" disabled>Save</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+
+        <!-- Add Model floating button -->
+        <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model"></a>
+        <h2>Models go here</h2>
+        {{#each modelsList}}
+            {{> modelItem}}
+        {{/each}}
+    </div>
+</template>
+

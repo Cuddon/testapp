@@ -14,6 +14,8 @@ Template.errors.helpers({
 // Define a global function this way
 showError = function(error, reason) {
   // Add an error message to the display list
+  // e.g.
+  //    showError('database-error', 'There was a database error. Please contact your system administrator');
 
   // Increment the error count
   Session.set('errorCount', Session.get('errorCount') + 1);
