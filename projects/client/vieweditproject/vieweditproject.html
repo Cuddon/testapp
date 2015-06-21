@@ -10,7 +10,7 @@
 
                 <!-- project name -->
                 <div class="form-group">
-                    <label for="projectName" class="col-lg-2 control-label">Project Name</label>
+                    <label for="projectName" class="col-lg-2 control-label">Project Name<span class="mandatory">*</span></label>
                     <div class="col-lg-10">
                         <input type="text" class="form-control" id="projectName" value="{{project.name}}" disabled>
                     </div>
@@ -30,6 +30,13 @@
                     <div class="col-lg-10">
                         <textarea class="form-control" rows="5" id="projectComment" value="{{project.comment}}" disabled></textarea>
                         <span class="help-block">A longer block of text to describe it in more detail.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="logo" class="col-lg-2 control-label">Project Logo</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="projectLogo" value="{{project.logo}}">
                     </div>
                 </div>
 

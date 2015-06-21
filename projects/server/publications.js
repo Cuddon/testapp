@@ -27,27 +27,3 @@ Meteor.publish("projects", function () {
     });
 });
 
-/*
-
-// Publish a single project,which must be owned by the user or shared to him/her
-Meteor.publish("project", function (projectId) {
-    // Check argument
-    if (!this.userId) {
-        // User is not logged in so do not return anything
-        return [];
-    }
-
-    check(this.userId, String);
-    check(projectId, String);
-
-    return ProjectsCollection.find({
-        _id: projectId,
-        $or: [
-            { ownerId: this.userId },
-            { sharedToId: this.userId }
-        ]
-    });
-});
-*/
-
-

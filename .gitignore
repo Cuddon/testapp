@@ -3,6 +3,8 @@
 #.meteor/local
 .meteor/meteorite
 
+## Requirements and design we don't want public yet
+Design/
 
 ### Node template
 # Logs
@@ -114,3 +116,5 @@ crashlytics.properties
 crashlytics-build.properties
 
 
+
+Design

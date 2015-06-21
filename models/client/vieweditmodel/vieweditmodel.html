@@ -10,9 +10,9 @@
 
                 <!-- Model Name -->
                 <div class="form-group">
-                    <label for="modelName" class="col-lg-2 control-label">Model Name</label>
+                    <label for="modelName" class="col-lg-2 control-label">Model Name<span class="mandatory">*</span></label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="modelName" value="{{model.name}}">
+                        <input type="text" class="form-control" id="modelName" value="{{model.name}}" disabled>
                     </div>
                 </div>
 
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="modelDescription" class="col-lg-2 control-label">Short Description</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="modelDescription" value="{{model.description}}">
+                        <input type="text" class="form-control" id="modelDescription" value="{{model.description}}" disabled>
                     </div>
                 </div>
 
@@ -28,7 +28,7 @@
                 <div class="form-group">
                     <label for="modelType" class="col-lg-2 control-label">Model Type</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="modelType" value="{{model.type}}">
+                        <input type="text" class="form-control" id="modelType" value="{{model.type}}" disabled>
                     </div>
                 </div>
 
@@ -37,7 +37,7 @@
                 <div class="form-group">
                     <label for="modelComment" class="col-lg-2 control-label">Comments</label>
                     <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" id="modelComment" value="{{model.comment}}"></textarea>
+                        <textarea class="form-control" rows="5" id="modelComment" value="{{model.comment}}" disabled></textarea>
                         <span class="help-block">A longer block of text to describe it in more detail.</span>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                 <div class="form-group">
                     <label for="modelIcon" class="col-lg-2 control-label">Model Icon</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="modelIcon" value="{{model.icon}}">
+                        <input type="text" class="form-control" id="modelIcon" value="{{model.icon}}" disabled>
                     </div>
                 </div>
 

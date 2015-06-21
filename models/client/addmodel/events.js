@@ -20,7 +20,7 @@ Template.addModel.events({
     };
 
     // Add the new model to the database using a server method
-    Meteor.call('addModel', projectId, model, function(error){
+    Meteor.call('addModel', model, function(error){
       if (error) {
         // Display the error to the client, and stay on the same page
         showError(error.error, error.reason)

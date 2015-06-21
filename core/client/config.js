@@ -1,9 +1,5 @@
 /**
- * Created by Andrew on 24/05/2015.
+ * Created by andrew on 17/06/15.
  */
 
-Session.setDefault('appName', "A Meteor App");
-Session.setDefault('appDescription', "My First Meteor App by Andrew Cuddon");
 Session.setDefault('activity', "Home");
-
-document.title = Session.get("appName");

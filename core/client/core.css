@@ -19,6 +19,9 @@ body {
     color: teal;
 }
 
+.mandatory {
+    color: #ff5d24;
+}
 
 /*
  Material bootstrap floating action button

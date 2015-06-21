@@ -7,16 +7,16 @@
                 <legend>Add a new project</legend>
 
                 <div class="form-group">
-                    <label for="name" class="col-lg-2 control-label">Project Name</label>
+                    <label for="name" class="col-lg-2 control-label">Project Name<span class="mandatory">*</span></label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="name" placeholder="Name of new project">
-                    </div>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Name of new project" maxlength="{{nameMaxLength}}">
+                </div>
                 </div>
 
                 <div class="form-group">
                     <label for="description" class="col-lg-2 control-label">Short Description</label>
                     <div class="col-lg-10">
-                        <input type="text" class="form-control" id="description" placeholder="Short description of the project">
+                        <input type="text" class="form-control" id="description" placeholder="Short description of the project" maxlength="{{descriptionMaxLength}}">
                     </div>
                 </div>
 
