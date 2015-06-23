@@ -23,25 +23,3 @@ Meteor.publish("models", function (projectId) {
     });
 });
 
-
-/*
-
-// Publish a single model,which must be owned by the user or shared to him/her
-Meteor.publish("model", function (modelId) {
-    if (!this.userId) {
-        // User is not logged in so do not return anything
-        return [];
-    }
-    check(this.userId, String);
-    check(modelId, String);
-
-    return ModelsCollection.find({
-        _id: modelId,
-        $or: [
-            {ownerId: this.userId},
-            {sharedToId: this.userId}
-        ]
-    });
-});
-
-*/

@@ -23,6 +23,7 @@ Template.viewEditModel.events({
         $('#modelDescription').prop('disabled', false);
         $('#modelType').prop('disabled', false);
         $('#modelComment').prop('disabled', false);
+        $('#modelIcon').prop('disabled', false);
 
         // Enable the save button and disable the edit button (as we are currently editing the model details)
         $('.save-button').prop('disabled', false);
@@ -43,6 +44,7 @@ Template.viewEditModel.events({
             description: $('#modelDescription').val(),
             type: $('#modelType').val(),
             comment: $('#modelComment').val(),
+            icon: $('#modelIcon').val()
         };
 
         Meteor.call('updateModel', model, function (error, result) {
@@ -58,6 +60,7 @@ Template.viewEditModel.events({
         $('#modelDescription').prop('disabled', true);
         $('#modelType').prop('disabled', true);
         $('#modelComment').prop('disabled', true);
+        $('#modelIcon').prop('disabled', true);
 
         // Disable the save button and enable the edit button (the save button is enabled when we are editing the projec details)
         $('.save-button').prop('disabled', true);
