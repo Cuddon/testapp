@@ -16,13 +16,20 @@ body {
     padding-bottom: 70px;
 
     background-color: white;
-    color: teal;
+    color: #515151;
 }
 
 .mandatory {
     color: #ff5d24;
 }
 
+h4 {
+    color: #0c337a;
+}
+
+.disabled {
+    color:  darkgray;
+}
 /*
  Material bootstrap floating action button
 */

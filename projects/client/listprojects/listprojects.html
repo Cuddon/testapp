@@ -1,48 +1,72 @@
-
 <!-- Display all projects for the current user -->
 <template name="listProjects">
 
     <!-- List the projects, one per panel -->
     <h2>Projects</h2>
-    <!-- Add Project floating button -->
-    <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right"></a>
 
-    <div class="list-group">
-        <div class="list-group-separator"></div>
+    <!-- Add Project floating button -->
+    {{#if isMenuEnabled.projectAdd}}
+        <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right"></a>
+    {{else}}
+        <a href="#" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right" disabled></a>
+    {{/if}}
+
+    <!-- List user's projects -->
+
+    <div class="container">
+    <div class="row">
         {{#each projectsList}}
             {{> projectItem}}
         {{/each}}
     </div>
+    </div>
+
 </template>
 
 
+<!-- Overview of a project -->
 <template name="projectItem">
-    <!-- Details of the project -->
-    <div class="list-group-item project-item">
-        <div class="row-picture">
-            <img class="circle" src="{{logo}}" alt="icon">
-        </div>
-        <div class="row-content">
-            <p class="list-group-item-heading">{{name}}</p>
-            <p class="list-group-item-text">{{description}}</p>
+    <div class="project-item col-md-3">
+        <img class="img-rounded" src="{{logo}}" alt="logo">
+
+        <h4>{{name}}</h4>
+        <p>{{description}}</p>
+        <!-- Actions on the selected project -->
+        <a href="#" class="btn btn-flat btn-success btn-sm project-item">Open</a>
+
+        <!-- Other actions on the selected project -->
+        <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="true">
+                Actions
+                <span class="caret"></span>
+            </button>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <!-- Clone -->
+                {{#if isMenuEnabled.projectClone}}
+                    <li><a href="#" class="project-clone">Clone</a></li>
+                {{else}}
+                    <li class="disabled"><a href="#">Clone</a></li>
+                {{/if}}
+
+                <!-- Share -->
+                {{#if isMenuEnabled.projectShare}}
+                    <li><a href="#" class="project-share">Share</a></li>
+                {{else}}
+                    <li class="disabled"><a href="#">Share</a></li>
+                {{/if}}
+
+                <li role="separator" class="divider"></li>
+
+                <!-- Delete -->
+                {{#if isMenuEnabled.projectDelete}}
+                    <li><a href="#" class="project-delete">Delete</a></li>
+                {{else}}
+                    <li class="disabled"><a href="#">Delete</a></li>
+                {{/if}}
+            </ul>
         </div>
     </div>
 
-    <!-- Actions on the selected project -->
-    <a href="#" class="btn btn-flat btn-success btn-sm project-item">Open</a>
-
-    <!-- Other actions on the selected project -->
-    <div class="btn-group">
-        <a href="" class="btn btn-flat btn-success btn-sm ">Actions</a>
-        <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
-        <ul class="dropdown-menu">
-            <li><a href="#" class="project-clone">Clone</a></li>
-            <li><a href="#" class="project-share">Share</a></li>
-            <li class="divider"></li>
-            <li><a href="#" class="project-delete">Delete</a></li>
-        </ul>
-    </div>
-
-    <div class="list-group-separator"></div>
-</template>
-
+ </template>

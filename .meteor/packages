@@ -11,4 +11,3 @@ useraccounts:bootstrap
 accounts-google
 twbs:bootstrap
 iron:router
-fezvrasta:bootstrap-material-design

@@ -16,7 +16,11 @@ clientSettings.enabledMenus = {
     0: {
         home: true,
         about: true,
-        login: true
+        login: true,
+        account: false,
+        projects: false,
+        messages: false,
+        settings: false
     },
 
     // Foundation (free) account
@@ -27,7 +31,22 @@ clientSettings.enabledMenus = {
         account: true,
         projects: true,
         messages: true,
-        settings: false
+        settings: false,
+
+        projectAdd: true,
+        projectClone: false,
+        projectShare: false,
+        projectDelete: true,
+
+        modelAdd: true,
+        modelClone: false,
+        modelDelete: true,
+        modelRun: true,
+
+        stepAdd: true,
+        stepClone: false,
+        stepDelete: true
+
     },
 
     // No Limits account

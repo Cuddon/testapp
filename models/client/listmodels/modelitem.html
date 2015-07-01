@@ -19,13 +19,27 @@
     <a href="#" class="btn btn-flat btn-success btn-sm model-item">Open</a>
 
     <!-- Other actions on the selected project -->
-    <div class="btn-group">
-        <a href="javascript:void(0)" class="btn btn-flat btn-success btn-sm">Actions</a>
-        <a href="bootstrap-elements.html" data-target="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Actions
+            <span class="caret"></span>
+        </button>
         <ul class="dropdown-menu">
-            <li><a href="#" class="model-clone">Clone</a></li>
-            <li class="divider"></li>
-            <li><a href="#" class="model-delete">Delete</a></li>
+            <!-- Clone -->
+            {{#if isMenuEnabled.modelClone}}
+                <li><a href="#" class="model-clone">Clone</a></li>
+            {{else}}
+                <li class="disabled"><a href="#">Clone</a></li>
+            {{/if}}
+
+            <li role="separator" class="divider"></li>
+
+            <!-- Delete -->
+            {{#if isMenuEnabled.modelDelete}}
+                <li><a href="#" class="model-delete">Delete</a></li>
+            {{else}}
+                <li class="disabled"><a href="#" >Delete</a></li>
+            {{/if}}
         </ul>
     </div>
 

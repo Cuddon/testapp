@@ -52,7 +52,12 @@
         </form>
 
         <!-- Add Model floating button -->
-        <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model"></a>
+        {{#if isMenuEnabled.projectAdd}}
+            <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model"></a>
+        {{else}}
+            <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model" disabled></a>
+        {{/if}}
+
         <h2>Models go here</h2>
         {{#each modelsList}}
             {{> modelItem}}
