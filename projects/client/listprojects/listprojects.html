@@ -14,29 +14,48 @@
     <!-- List user's projects -->
 
     <div class="container">
-    <div class="row">
-        {{#each projectsList}}
-            {{> projectItem}}
-        {{/each}}
-    </div>
+        <div class="row">
+            {{#each projectsList}}
+                <div class="col-sm-6 col-md-6 col-lg-3">
+                    {{> projectItem}}
+                </div>
+            {{/each}}
+        </div>
     </div>
 
 </template>
 
 
-<!-- Overview of a project -->
-<template name="projectItem">
-    <div class="project-item col-md-3">
-        <img class="img-rounded" src="{{logo}}" alt="logo">
 
-        <h4>{{name}}</h4>
-        <p>{{description}}</p>
-        <!-- Actions on the selected project -->
-        <a href="#" class="btn btn-flat btn-success btn-sm project-item">Open</a>
+<template name="projectItem">
+
+    <!-- Panel Outer (Portrait shaped)-->
+    <div class="panel golden-ratio-portrait project-item">
+        <div class="content">
+
+            <!-- Panel Image (Landscape shaped)-->
+            <div class="golden-ratio-landscape">
+                <div class="content panel-image ">
+                    <img src="{{logo}}" alt="logo">
+                </div>
+            </div>
+            <div class="panel-inner-content">
+                <h4>{{name}}</h4>
+
+                {{#if description }}
+                    <p>{{description}}</p>
+                {{else}}
+                    <br>
+                {{/if}}
+                <!-- Actions on the selected panel -->
+                <a href="#" class="btn btn-flat btn-success btn-sm project-item">Open</a>
+            </div>
+        </div>
 
         <!-- Other actions on the selected project -->
         <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+                    data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="true">
                 Actions
                 <span class="caret"></span>
@@ -67,6 +86,6 @@
                 {{/if}}
             </ul>
         </div>
-    </div>
 
- </template>
+    </div>
+</template>

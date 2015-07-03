@@ -1,3 +1,62 @@
+Dropdown menus
+
+<ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+  <li class="disabled"><a href="#">Disabled link</a></li>
+  <li role="separator" class="divider"></li>
+  <li><a href="#">Another link</a></li>
+</ul>
+
+
+NAVBAR
+Wrap strings of text in an element with .navbar-text, usually on a <p> tag for proper leading and color.
+<p class="navbar-text">Signed in as Mark Otto</p>
+
+
+BREADCRUMBS
+<ol class="breadcrumb">
+  <li><a href="#">Home</a></li>
+  <li><a href="#">Library</a></li>
+  <li class="active">Data</li>
+</ol>
+
+
+
+PROJECT ITEM
+<div class="row">
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail">
+      <img src="..." alt="...">
+      <div class="caption">
+        <h3>Thumbnail label</h3>
+        <p>...</p>
+        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+Dismissible alert
+<div class="alert alert-warning alert-dismissible" role="alert">
+ <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+</div>
+
+
+http://getbootstrap.com/customize/
+
+
+
+Andrew Cuddon | Senior Program Manager
+Australian Unity Limited
+114 Albert Road | South Melbourne  VIC  3205
+T +613 8682  6052 | M 0409 093 963
+W www.australianunity.com.au<http://www.australianunity.com.au/>
+E acuddon@australianunity.com.au<mailto:acuddon@australianunity.com.au>
+[cid:image002.jpg@01D0B4A8.30008430]<http://intranet.australianunity.net.au/prj/hris/Pages/home.aspx>
+
+
+
 
 //Define a new Collection on both the client and the server
 ProjectsCollection = new Mongo.Collection("projects");

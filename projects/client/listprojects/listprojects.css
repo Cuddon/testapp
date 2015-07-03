@@ -1,11 +1,81 @@
 /* CSS declarations go here */
 
 
-.project-item {
-    background-color: #caff34;
-    padding: 10px;
-    margin: 10px;
+/*
+    see http://www.goldenapplewebdesign.com/responsive-aspect-ratios-with-pure-css/
 
+    When declaring percentages instead of fixed values for padding, the percentage is calculated based on
+    the WIDTH of the element in question, even if we are declaring an inherently vertical height effecting value
+    such as padding-top or padding-bottom. To take advantage of this for the purpose of maintaining our height
+    relative to width, all we have to do is a little math!
+
+    padding-top calculation:
+    A:B (width:height)
+    B / A * 100 = C%
+
+    16:9 (A=16, B=9): C = 9/16*100 = 56.25%
+    4:3  (A=4, B=3): C = 3/4*100 = 75.0%
+
+    1:1.618 Portrait (A=1, B=1.618): C = 161.8%
+    1.618:1 Landscape (A=1.168, B = 1): C = 61.8%
+
+*/
+
+.golden-ratio-portrait {
+    position: relative;
+    border: 1px solid gray;
 }
 
+.golden-ratio-portrait:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 161.8%;  /* 1:1.618 */
+}
 
+.golden-ratio-portrait > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.golden-ratio-landscape {
+    position: relative;
+    border: 1px solid gray;
+}
+
+.golden-ratio-landscape:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: 61.8%;  /* 1.618:1 */
+}
+
+.golden-ratio-landscape > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.panel-image {
+    background-color: #3c3f41;
+}
+
+.panel-image > img {
+    position: relative;
+    overflow: hidden;
+    max-height:100%;
+    width:100%;
+}
+
+.panel-inner-content {
+    padding: 10px;
+}
+
+.panel {
+    margin-bottom: 10px;
+}
