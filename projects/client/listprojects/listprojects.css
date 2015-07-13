@@ -1,5 +1,46 @@
 /* CSS declarations go here */
 
+/* Add project Fast Action Button*/
+#addproject {
+    position: fixed;
+    display: block;
+    right: 0;
+    top: 0;
+    margin-right: 40px;
+    margin-top: 80px;
+    z-index: 900;
+}
+
+/* Project Card in ListProjects view */
+.project-card.mdl-card {
+    width: 336px;
+    height: 200px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+}
+
+.project-card > .mdl-card__title,
+.project-card > .mdl-card__supporting-text,
+.project-card > .mdl-card__actions {
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+/* Actions section */
+.project-card > .mdl-card__actions {
+    position: relative;
+    height: 52px;
+    padding: 16px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.actionsMenu {
+    position: relative;
+    left: -80px;
+    z-index: 900;
+    color: #fff;
+}
 
 /*
     see http://www.goldenapplewebdesign.com/responsive-aspect-ratios-with-pure-css/
@@ -21,7 +62,9 @@
 
 */
 
-.golden-ratio-portrait {
+
+
+  .golden-ratio-portrait {
     position: relative;
     border: 1px solid gray;
 }
@@ -78,4 +121,7 @@
 
 .panel {
     margin-bottom: 10px;
+    -webkit-box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
+    -moz-box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
+    box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
 }

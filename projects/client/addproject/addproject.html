@@ -1,47 +1,51 @@
-
 <!-- Add a new project -->
 <template name="addProject">
-    <div class="container-fluid">
-        <form class="form-horizontal">
-            <fieldset>
-                <legend>Add a new project</legend>
+    <!-- List the projects, one per panel -->
+    <h3>Add Project<br>
+        <small>Add a new project</small>
+    </h3>
 
-                <div class="form-group">
-                    <label for="name" class="col-lg-2 control-label">Project Name<span class="mandatory">*</span></label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Name of new project" maxlength="{{projectNameMaxLength}}">
-                </div>
-                </div>
 
-                <div class="form-group">
-                    <label for="description" class="col-lg-2 control-label">Short Description</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="description" placeholder="Short description of the project" maxlength="{{projectDescriptionMaxLength}}">
-                    </div>
-                </div>
+    <form action="#">
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input class="mdl-textfield__input" type="text" id="name" name="name" pattern="^[a-zA-Z0-9-_\.\@\(\)]{1,50}$"
+                       maxlength="{{projectNameMaxLength}}" required/>
+                <label class="mdl-textfield__label" for="name">Project name...</label>
+                <span class="mdl-textfield__error">1-50 characters, numbers, underscore, minus, dot, ampersand, brackets only.</span>
+            </div>
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+            <textarea class="mdl-textfield__input" type="text" rows="3" id="description" name="description"
+                      maxlength="{{projectDescriptionMaxLength}}"></textarea>
+                <label class="mdl-textfield__label" for="description">Description</label>
+            </div>
+        </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
+                <textarea class="mdl-textfield__input" type="text" rows="3" id="comment" name="comment"></textarea>
+                <label class="mdl-textfield__label" for="comment">Comments</label>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label for="comment" class="col-lg-2 control-label">Comments</label>
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" id="comment"></textarea>
-                        <span class="help-block">A longer block of text to describe it in more detail.</span>
-                    </div>
-                </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                <input type="url" class="mdl-textfield__input" id="logo" name="logo">
+                <label class="mdl-textfield__label" for="logo">Project Logo URL</label>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label for="logo" class="col-lg-2 control-label">Project Logo</label>
-                    <div class="col-lg-10">
-                        <input type="url" class="form-control" id="logo" placeholder="Enter a url">
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default cancel-button">Cancel</button>
-                        <button type="submit" class="btn btn-primary">Save</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-    </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect cancel-button">
+                    Cancel
+                </button>
+                <button type="submit"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                    Save
+                </button>
+            </div>
+        </div>
+    </form>
 </template>

@@ -33,16 +33,19 @@ clientSettings.enabledMenus = {
         messages: true,
         settings: false,
 
+        projectView: true,
         projectAdd: true,
         projectClone: false,
         projectShare: false,
         projectDelete: true,
 
+        modelView: true,
         modelAdd: true,
         modelClone: false,
         modelDelete: true,
         modelRun: true,
 
+        StepView: true,
         stepAdd: true,
         stepClone: false,
         stepDelete: true

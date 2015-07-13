@@ -38,6 +38,7 @@ Meteor.methods({
         }
 
         // Delete the project from the database
+        // TODO: When deleting a project you also need to delete it's models and steps
         ProjectsCollection.remove(projectId, function (error) {
             if (error) {
                 // Raise an error and send it to the client

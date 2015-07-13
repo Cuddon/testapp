@@ -33,7 +33,7 @@ Meteor.methods({
 
         // Set a default logo
         if (!project.logo) {
-            project.logo = "http://lorempixel.com/56/56/nature";     // Default project logo. 56x56 px
+            project.logo = "http://lorempixel.com/320/200/abstract";     // Default project logo. 320x200px
         }
 
         // Add additional fields (server use only, never transmitted to a client)

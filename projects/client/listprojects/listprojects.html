@@ -1,91 +1,77 @@
-<!-- Display all projects for the current user -->
+<!--
+    Display all projects for the current user
+-->
+
 <template name="listProjects">
 
     <!-- List the projects, one per panel -->
-    <h2>Projects</h2>
+    <h3>Projects<br>
+        <small>Select a project or add a new one</small>
+    </h3>
 
     <!-- Add Project floating button -->
     {{#if isMenuEnabled.projectAdd}}
-        <a href="/addproject" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right"></a>
+        <button href="/addproject"
+                class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
+                id="addproject" name="addproject">
+            <i class="material-icons">add</i>
+        </button>
     {{else}}
-        <a href="#" class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right" disabled></a>
+        <button href="/addproject"
+                class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect"
+                id="addproject" name="addproject" disabled>
+            <i class="material-icons">add</i>
+        </button>
     {{/if}}
+    <div class="mdl-tooltip" for="addproject">Add Project</div>
 
     <!-- List user's projects -->
-
-    <div class="container">
-        <div class="row">
-            {{#each projectsList}}
-                <div class="col-sm-6 col-md-6 col-lg-3">
-                    {{> projectItem}}
-                </div>
-            {{/each}}
-        </div>
+    <div class="mdl-grid">
+        {{#each projectsList}}
+            {{> projectItem}}
+        {{/each}}
     </div>
 
 </template>
-
-
 
 <template name="projectItem">
 
-    <!-- Panel Outer (Portrait shaped)-->
-    <div class="panel golden-ratio-portrait project-item">
-        <div class="content">
+    <!-- Material Design Light Card -->
+    <div class="mdl-card mdl-shadow--8dp project-card project-item"
+         style="background: url('{{logo}}') center / contain;">
 
-            <!-- Panel Image (Landscape shaped)-->
-            <div class="golden-ratio-landscape">
-                <div class="content panel-image ">
-                    <img src="{{logo}}" alt="logo">
-                </div>
-            </div>
-            <div class="panel-inner-content">
-                <h4>{{name}}</h4>
-
-                {{#if description }}
-                    <p>{{description}}</p>
-                {{else}}
-                    <br>
-                {{/if}}
-                <!-- Actions on the selected panel -->
-                <a href="#" class="btn btn-flat btn-success btn-sm project-item">Open</a>
-            </div>
+        <!-- Project Name (Card Title) -->
+        <div class="mdl-card__title mdl-card--expand">
+            <h2 class="mdl-card__title-text">{{name}}</h2>
         </div>
 
-        <!-- Other actions on the selected project -->
-        <div class="dropdown">
-            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
-                    data-toggle="dropdown"
-                    aria-haspopup="true" aria-expanded="true">
-                Actions
-                <span class="caret"></span>
-            </button>
-
-            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-                <!-- Clone -->
-                {{#if isMenuEnabled.projectClone}}
-                    <li><a href="#" class="project-clone">Clone</a></li>
-                {{else}}
-                    <li class="disabled"><a href="#">Clone</a></li>
-                {{/if}}
-
-                <!-- Share -->
-                {{#if isMenuEnabled.projectShare}}
-                    <li><a href="#" class="project-share">Share</a></li>
-                {{else}}
-                    <li class="disabled"><a href="#">Share</a></li>
-                {{/if}}
-
-                <li role="separator" class="divider"></li>
-
-                <!-- Delete -->
-                {{#if isMenuEnabled.projectDelete}}
-                    <li><a href="#" class="project-delete">Delete</a></li>
-                {{else}}
-                    <li class="disabled"><a href="#">Delete</a></li>
-                {{/if}}
-            </ul>
+        <!-- Project Description (Card supporting text) -->
+        <div class="mdl-card__supporting-text">
+            {{description}}
         </div>
+
+        <!-- Actions (Card Actions section) -->
 
     </div>
+
+    <!-- Actions Menu overlaid on the Card using CSS -->
+    <div class="actionsMenu">
+        <!-- Right aligned menu below button -->
+        <button id="demo-menu-lower-right{{_id}}"
+                class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+        </button>
+
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            for="demo-menu-lower-right{{_id}}">
+            <li class="mdl-menu__item">Some Action</li>
+            <li class="mdl-menu__item">Another Action</li>
+            <li disabled class="mdl-menu__item">Disabled Action</li>
+            <li class="mdl-menu__item">Yet Another Action</li>
+        </ul>
+
+    </div>
+
 </template>
+
+

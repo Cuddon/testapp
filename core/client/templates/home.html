@@ -1,25 +1,27 @@
 <template name="home">
 
-    <div class="container">
+        <div class="mdl-grid">
 
-        <div class="jumbotron">
-            <p>This app is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
-                content or information.</p>
+            <div class="mdl-cell mdl-cell--12-col mdl-shadow--2dp" id="welcome">
+                <p>Welcome to <em>{{appName}}</em>. This app is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured
+                    content or information.</p>
 
-            <p><a class="btn btn-primary btn-lg" href="/about" role="button">Learn more</a></p>
-        </div>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect about">Learn more</button>
+            </div>
 
-        <div class="row">
-            <div class="col-lg-4">
+            <div class="mdl-cell mdl-cell--4-col">
                 <img class="img-circle" src="/images/sunset.jpg" alt="Generic placeholder image" width="60" height="60">
                 <h4>Heading</h4>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque risus quam, tristique id convallis ac,
                     faucibus non eros. Quisque at suscipit ex, et auctor nulla. Vestibulum scelerisque, ex feugiat vestibulum
                     rhoncus non. Integer scelerisque mi ligula, a condimentum neque pulvinar quis. Curabitur tristique nisl non
                     eros finibus pellentesque vitae ac magna. Donec sit amet metus vitae lacus vehicula sollicitudin.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+
+                <!-- Flat button with ripple -->
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect about">View details &raquo;</button>
             </div>
-            <div class="col-lg-4">
+
+            <div class="mdl-cell mdl-cell--4-col">
                 <img class="img-circle" src="/images/flower.jpg" alt="Generic placeholder image" width="60" height="60">
                 <h4>Heading</h4>
                 <p>Morbi rutrum ultricies eros ac commodo. Sed volutpat urna a lectus faucibus, sed tincidunt ante efficitur.
@@ -27,9 +29,10 @@
                     luctus rutrum. Nullam ut quam ac nisl condimentum blandit. Donec vel lorem nec odio convallis facilisis.
                     auctor. Aenean venenatis, lacus eu aliquet euismod, augue elit mattis libero, a tempus nisi odio at
                     magna.</p>
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect about">View details &raquo;</button>
             </div>
-            <div class="col-lg-4">
+
+            <div class="mdl-cell mdl-cell--4-col">
                 <img class="img-circle" src="/images/grass.jpg" alt="Generic placeholder image" width="60" height="60">
                 <h4>Heading</h4>
                 <p> aliquam pretium nisi in porttitor. Suspendisse potenti. Praesent vitae facilisis ligula. Morbi consequat,
@@ -37,17 +40,15 @@
                     mollis. Vestibulum consequat velit eget magna volutpat sollicitudin. Sed pretium metus non est congue
                     egestas. Mauris vel semper lacus. Fusce et condimentum ex.</p>
 
-                <p><a class="btn btn-default" href="#" role="button">View details &raquo;</a></p>
+                <button class="mdl-button mdl-js-button mdl-js-ripple-effect about">View details &raquo;</button>
             </div>
+
+            <p class="mdl-cell mdl-cell--12-col">Mauris ultricies neque mauris, et accumsan purus pellentesque finibus. Aliquam ex mauris, vulputate eu nunc
+                vel, tempor rutrum mauris. Donec tristique dolor nec libero fermentum, et pulvinar enim pretium. Cras
+                dignissim ante justo, vitae egestas est tincidunt nec. Donec in tincidunt orci. Etiam non porttitor felis.
+                Donec felis odio, varius sed tellus sed, euismod dictum enim. Nam ac lacinia neque.</p>
         </div>
 
-
-        <p>Mauris ultricies neque mauris, et accumsan purus pellentesque finibus. Aliquam ex mauris, vulputate eu nunc
-            vel, tempor rutrum mauris. Donec tristique dolor nec libero fermentum, et pulvinar enim pretium. Cras
-            dignissim ante justo, vitae egestas est tincidunt nec. Donec in tincidunt orci. Etiam non porttitor felis.
-            Donec felis odio, varius sed tellus sed, euismod dictum enim. Nam ac lacinia neque.</p>
-
-    </div>
 </template>
 
 

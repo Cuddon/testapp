@@ -9,5 +9,5 @@ accounts-ui
 accounts-password
 useraccounts:bootstrap
 accounts-google
-twbs:bootstrap
 iron:router
+accounts-meteor-developer

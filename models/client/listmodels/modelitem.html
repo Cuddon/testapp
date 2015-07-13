@@ -1,47 +1,50 @@
-
 <!--
     Model Item template (summary for viewing a list of models)
     Called by the view/Edit project template
 -->
 
 <template name="modelItem">
-    <!-- Details of a model -->
-    <div class="list-group-item model-item">
-        <div class="row-picture">
-        </div>
-        <div class="row-content">
-            <h4 class="list-group-item-heading">{{name}}</h4>
-            <p class="list-group-item-text">{{description}}</p>
-        </div>
-    </div>
 
-    <!-- Actions on the selected model -->
-    <a href="#" class="btn btn-flat btn-success btn-sm model-item">Open</a>
+    <!-- Title section -->
+    <div class="mdl-card mdl-shadow--2dp demo-card-event">
+        <div class="mdl-card__title mdl-card--expand model-item">
+            <h4>{{name}}<br>
+                <small>{{description}}</small>
+            </h4>
+        </div>
 
-    <!-- Other actions on the selected project -->
-    <div class="dropdown">
-        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Actions
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">
+        <!-- Actions section -->
+        <div class="mdl-card__actions mdl-card--border">
+            <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect model-item">
+                Open
+            </a>
+
+            <!-- Other actions on the selected model -->
+            <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="btn1">
+                <i class="material-icons">more_vert</i>
+            </a>
+
+            <ul class="mdl-menu mdl-js-menu mdl-menu--bottom-left" for="btn1">
+                <li class="mdl-menu__item">Lorem</li>
+                <li class="mdl-menu__item" disabled>Ipsum</li>
+                <li class="mdl-menu__item">Dolor</li>
+            </ul>
             <!-- Clone -->
             {{#if isMenuEnabled.modelClone}}
-                <li><a href="#" class="model-clone">Clone</a></li>
+                <button class="model-clone">Clone</button>
             {{else}}
-                <li class="disabled"><a href="#">Clone</a></li>
+                <button disabled>Clone</button>
             {{/if}}
-
-            <li role="separator" class="divider"></li>
 
             <!-- Delete -->
             {{#if isMenuEnabled.modelDelete}}
-                <li><a href="#" class="model-delete">Delete</a></li>
+                <button class="model-delete">Delete</button>
             {{else}}
-                <li class="disabled"><a href="#" >Delete</a></li>
+                <button disabled>Delete</button>
             {{/if}}
-        </ul>
+        </div>
     </div>
 
-    <div class="list-group-separator"></div>
+
 </template>
+

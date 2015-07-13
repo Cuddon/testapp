@@ -67,28 +67,5 @@ Template.viewEditProject.events({
         return false;
     },
 
-    // A model card/list item is clicked
-    "click div .model-item, click a .model-item": function () {
-        var modelId = this._id;
-        var projectId = this.projectId;
-
-        //Open the selected project view/edit template
-        Router.go('model', {projectId: projectId, _id: modelId});
-
-        // Prevent default form submit
-        return false;
-    },
-
-    // Add model button is clicked
-    "click .add-model": function () {
-        var projectId = this.project._id;
-
-        //Open the selected model view/edit template
-        Router.go('addmodel', {projectId: projectId});
-
-        // Prevent default form submit
-        return false;
-    }
-
 
 });

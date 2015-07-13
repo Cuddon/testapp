@@ -1,14 +1,29 @@
 <template name="ApplicationLayout">
-    {{> topnav}}
 
-    <!-- Content container -->
-    <div class="container-fluid">
-        <!-- Error messages - dismissable -->
-        <div>{{> errors}}</div>
+    <!-- MDL layout container -->
+    <div class="mdl-layout mdl-js-layout mdl-layout__header--scroll">
+        <!-- Header -->
+        {{> topnav}}
 
-        <!-- Variable content container -->
-        <div>{{> yield "content"}}</div>
+        <!-- Material Design Light (MDL) content container -->
+        <main class="mdl-layout__content">
+            <div class="page-content">
+                <!-- MDL content goes here -->
+
+                <div class="content-container">
+                        <!-- Error messages - dismissable -->
+                        <div>{{> errors}}</div>
+
+                    <!-- Variable content container -->
+                    <div>
+                        {{> yield "content"}}
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Footer -->
+        {{> footer}}
     </div>
-    {{> footer}}
-
 </template>

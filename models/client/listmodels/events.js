@@ -5,6 +5,30 @@
 
 Template.modelItem.events({
 
+    // Add model button is clicked
+    "click .add-model": function () {
+        var projectId = this.project._id;
+
+        //Open the selected model view/edit template
+        Router.go('addmodel', {projectId: projectId});
+
+        // Prevent default form submit
+        return false;
+    },
+
+    // A model card item is clicked
+    "click .model-item": function () {
+        var modelId = this._id;
+        var projectId = this.projectId;
+
+        //Open the selected project view/edit template
+        Router.go('model', {projectId: projectId, _id: modelId});
+
+        // Prevent default form submit
+        return false;
+    },
+
+
     // Clone button is clicked
     'click .model-clone': function () {
         alert("Not implemented");

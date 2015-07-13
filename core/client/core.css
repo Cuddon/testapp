@@ -1,45 +1,24 @@
 /* CSS declarations go here */
 
-/*
-div {
-    border-color: darkgrey;
-    border-style: dotted;
-}
-
-.row {
-    padding: 10px;
-    border-color: blueviolet;
-}
-*/
-
 body {
-    padding-bottom: 70px;
-
-    background-color: white;
-    color: #515151;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 
 .mandatory {
     color: #ff5d24;
 }
 
-h4 {
-    color: #0c337a;
+.content-container {
+    padding-left: 20px;
+    max-width: 1200px;
+    margin: auto;   /* Centre the block in it's container*/
 }
 
-.disabled {
-    color:  darkgray;
+#welcome {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    padding: 40px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.05);
 }
-/*
- Material bootstrap floating action button
-*/
 
-#floating-action-button .btn {
-       margin: 20px;
-   }
-#floating-action-button h2 {
-    padding: 14px;
-    margin: 0;
-    font-size: 16px;
-    font-weight: 400;
-}

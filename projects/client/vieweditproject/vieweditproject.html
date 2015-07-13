@@ -1,67 +1,93 @@
-
 <!-- View/edit project -->
 <template name="viewEditProject">
 
-    <h2>Project: {{project.name}}</h2>
-    <div class="container-fluid">
-        <form class="form-horizontal">
-            <fieldset>
-                <img class="circle" src="{{project.logo}}" alt="icon">
+    <h3>Project<br>
+        <small>{{project.name}}</small>
+    </h3>
 
-                <!-- project name -->
-                <div class="form-group">
-                    <label for="projectName" class="col-lg-2 control-label">Project Name<span class="mandatory">*</span></label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="projectName" value="{{project.name}}" maxlength="{{projectNameMaxLength}}" disabled >
-                    </div>
+    <form action="#">
+        <img src="{{project.logo}}" alt="icon">
+
+        <!-- project name -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="projectName" name="projectName"
+                           value="{{project.name}}" maxlength="{{projectNameMaxLength}}" required disabled/>
+                    <label class="mdl-textfield__label" for="projectName">Project name</label>
                 </div>
+            </div>
+        </div>
 
-                <!-- project description -->
-                <div class="form-group">
-                    <label for="projectDescription" class="col-lg-2 control-label">Short Description</label>
-                    <div class="col-lg-10">
-                        <input type="text" class="form-control" id="projectDescription" value="{{project.description}}" maxlength="{{projectDescriptionMaxLength}}" disabled>
-                    </div>
+        <!-- project description -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" rows="3" id="projectDescription" name="projectDescription"
+                           value="{{project.description}}" maxlength="{{projectDescriptionMaxLength}}" disabled></textarea>
+                    <label class="mdl-textfield__label" for="projectDescription">Project description</label>
                 </div>
+            </div>
+        </div>
 
-                <!-- project comment -->
-                <div class="form-group">
-                    <label for="projectComment" class="col-lg-2 control-label">Comments</label>
-                    <div class="col-lg-10">
-                        <textarea class="form-control" rows="5" id="projectComment" value="{{project.comment}}" disabled></textarea>
-                        <span class="help-block">A longer block of text to describe it in more detail.</span>
-                    </div>
+        <!-- project comment -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" rows="5" id="projectComment" name="projectComment"
+                           value="{{project.comment}}" disabled></textarea>
+                    <label class="mdl-textfield__label" for="projectComment">Project comment</label>
                 </div>
+            </div>
+        </div>
 
-                <div class="form-group">
-                    <label for="logo" class="col-lg-2 control-label">Project Logo</label>
-                    <div class="col-lg-10">
-                        <input type="url" class="form-control" id="projectLogo" value="{{project.logo}}" disabled>
-                    </div>
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input type="url" class="mdl-textfield__input" id="projectLogo" name="projectLogo"
+                           value="{{project.logo}}" disabled/>
+                    <label class="mdl-textfield__label" for="projectLogo">Project logo</label>
                 </div>
+            </div>
+        </div>
 
-                <!-- Buttons -->
-                <div class="form-group">
-                    <div class="col-lg-10 col-lg-offset-2">
-                        <button class="btn btn-default close-button">Close</button>
-                        <button class="btn btn-default edit-button">Edit</button>
-                        <button type="submit" class="btn btn-primary save-button" disabled>Save</button>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
+        <!-- Buttons -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect close-button">Close</button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent edit-button">Edit</button>
+                <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent save-button" disabled>Save</button>
 
-        <!-- Add Model floating button -->
-        {{#if isMenuEnabled.projectAdd}}
-            <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model"></a>
-        {{else}}
-            <a class="btn btn-danger btn-fab btn-raised mdi-content-add pull-right add-model" disabled></a>
-        {{/if}}
+            </div>
+        </div>
 
-        <h2>Models go here</h2>
-        {{#each modelsList}}
-            {{> modelItem}}
-        {{/each}}
-    </div>
+    </form>
+
+
+    <h3>Models<br>
+        <small>Select a model or add a new one</small>
+    </h3>
+
+    <!-- Add Model floating button -->
+    {{#if isMenuEnabled.modelAdd}}
+        <button href="/addmodel"
+                class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored add-model"
+                id="addmodel" name="addmodel">
+            <i class="material-icons">add</i>
+        </button>
+    {{else}}
+        <button href="/addmodel"
+           class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored add-model"
+           id="addmodel" name="addmodel" disabled>
+            <i class="material-icons">add</i>
+        </button>
+    {{/if}}
+    <div class="mdl-tooltip" for="addmodel">Add Model</div>
+
+    {{#each modelsList}}
+        {{> modelItem}}
+    {{/each}}
+
+
 </template>
 
