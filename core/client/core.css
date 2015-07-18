@@ -22,3 +22,20 @@ body {
     background: rgba(0, 0, 0, 0.05);
 }
 
+.section {
+    padding-left: 20px;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-radius: 5px;
+    background-color: rgba(0,0,0,0.05);
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+.section-title {
+    margin-top: -10px;
+}
+
+.section-subtitle {
+    margin-top: -10px;
+    color: #767676;
+}

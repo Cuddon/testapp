@@ -12,6 +12,7 @@ Template.listProjects.events({
         return false;
     },
 
+
     "click .about": function () {
         Router.go("/about");
 
@@ -19,8 +20,9 @@ Template.listProjects.events({
         return false;
     },
 
+
     // A project card/list item is clicked
-    "click div .project-item, click a .project-item": function () {
+    "click .project-item": function () {
         var projectId = this._id;
 
         //Open the selected project view/edit template
@@ -30,6 +32,7 @@ Template.listProjects.events({
         return false;
     },
 
+
     // Cancel button is clicked, go back to projects list
     "click .cancel-button": function () {
         Router.go("projects");
@@ -37,6 +40,7 @@ Template.listProjects.events({
         // Prevent default form action
         return false;
     },
+
 
     // Clone button is clicked
     "click .project-clone": function () {
@@ -54,10 +58,13 @@ Template.listProjects.events({
         //return false;
     },
 
+
     // Delete button is clicked
     "click .project-delete": function () {
-        var projectId = this._id;
+        // TODO: Deleting a project should delete all models and steps
+        // TODO: If not empty then deleting a model should require a second confirmation from the user. User shoudl type the model name exactly
 
+        var projectId = this._id;
         var conf = confirm("Please confirm.\nDo you want to delete project: " + this.name + ". \n***This will also delete all models and steps used by this project.***");
         if (conf === true) {
             // Add the new project to the database using a server method
@@ -70,7 +77,7 @@ Template.listProjects.events({
         }
 
         // Prevent default form action
-        //return false;
+        return false;
     }
 
 

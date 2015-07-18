@@ -1,0 +1,39 @@
+<!--TODO View model: Review fields-->
+
+
+<!-- Add a new model -->
+<template name="viewModel">
+
+    <div class="section">
+        <h3 class="section-title">Model: {{model.name}}</h3>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell--2-col">
+                <img class="project-image-medium" src="{{model.icon}}" alt="icon">
+            </div>
+
+            <div class="mdl-cell--4-col">
+                <p>
+                    <small>Description: {{model.description}}</small><br>
+                    <small>Type: {{model.type}}</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- model notes -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input" rows="5" id="modelComment" name="modelComment"
+                                  value="{{model.comment}}"></textarea>
+                    <label class="mdl-textfield__label" for="modelComment">Comment</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{> listSteps}}
+
+</template>
+
+

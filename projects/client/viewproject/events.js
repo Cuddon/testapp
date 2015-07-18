@@ -3,10 +3,11 @@
  * Add a new model
  */
 
-Template.viewEditProject.events({
+Template.viewProject.events({
 
     // Cancel button is clicked, go back to the previous screen (typically the user's projects list)
     "click .close-button": function () {
+
         // Go back to previous screen
         //history.back();
         Router.go("projects");

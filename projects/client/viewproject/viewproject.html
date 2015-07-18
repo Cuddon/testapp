@@ -1,0 +1,39 @@
+<!--
+    View  a project
+-->
+
+<template name="viewProject">
+    <div class="section">
+        <h3 class="section-title">Project</h3>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell--2-col">
+                <img class="project-image-medium" src="{{project.logo}}" alt="icon">
+            </div>
+
+            <div class="mdl-cell--4-col">
+                <h5 class="section-subtitle">{{project.name}}</h5>
+                <p><small>Description: {{project.description}}</small>
+                </p>
+            </div>
+        </div>
+
+        <!-- project comment -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--6-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                        <textarea class="mdl-textfield__input" rows="5" id="projectComment" name="projectComment"
+                                  value="{{project.comment}}"></textarea>
+                    <label class="mdl-textfield__label" for="projectComment">Comment</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Models for this project -->
+    {{> listmodels}}
+
+</template>
+

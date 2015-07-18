@@ -1,5 +1,5 @@
 /**
- * View/Edit a project - routes
+ * View a project - routes
  */
 
 // View/edit a single project and it's models
@@ -29,7 +29,7 @@ Router.route('/project/:_id', {
 
     action: function () {
         if (Meteor.userId()) {
-            this.render('viewEditProject', {to: 'content'});
+            this.render('viewProject', {to: 'content'});
             Session.set('activity', "View/Edit project");
         } else {
             alert("You must be logged in to add a new project");

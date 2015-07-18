@@ -1,8 +1,10 @@
 /**
- * Routes: View/Edit a model
+ * Routes: View a MODEL
  */
 
-// View/edit a single model
+// View a Model
+// Router.go('model', {projectId: projectId, modelId: modelId, _id: stepId});
+
 Router.route('/project/:projectId/model/:_id', {
     name: 'model',
 
@@ -31,10 +33,10 @@ Router.route('/project/:projectId/model/:_id', {
     action: function () {
         // Render the template into the content area
         if (Meteor.userId()) {
-            this.render('viewEditModel', {to: 'content'});
-            Session.set('activity', "View/Edit model");
+            this.render('viewModel', {to: 'content'});
+            Session.set('activity', "View model");
         } else {
-            alert("You must be logged in to add a new model");
+            alert("You must be logged in to view a new model");
             this.render('Home', {to: 'content'});
             Session.set('activity', "Home");
         }

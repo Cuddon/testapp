@@ -4,6 +4,7 @@
 
 
 Template.addModel.events({
+
   // Add model form is submitted
   "submit": function (event) {
 
@@ -33,6 +34,7 @@ Template.addModel.events({
     // Prevent default form submit
     return false;
   },
+
 
   // addModel Cancel button is clicked, go back to models list
   "click .cancel-button": function () {

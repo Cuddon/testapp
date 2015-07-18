@@ -24,7 +24,8 @@ Meteor.methods({
             name: String,
             description: String,
             type:   String,
-            comment: String
+            comment: String,
+            icon: String
         });
 
         // Ensure mandatory fields have been completed

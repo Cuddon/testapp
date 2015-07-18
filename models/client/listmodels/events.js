@@ -2,6 +2,19 @@
  * Created by Andrew on 8/06/2015.
  */
 
+Template.listmodels.events({
+
+    // Add model button is clicked
+    "click .add-model": function () {
+        var projectId = this.project._id;
+
+        //Open the selected model view/edit template
+        Router.go('addmodel', {projectId: projectId});
+
+        // Prevent default form submit
+        return false;
+    }
+});
 
 Template.modelItem.events({
 

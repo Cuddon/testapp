@@ -1,29 +1,32 @@
 <template name="ApplicationLayout">
 
-    <!-- MDL layout container -->
-    <div class="mdl-layout mdl-js-layout mdl-layout__header--scroll">
-        <!-- Header -->
-        {{> topnav}}
+    <!-- Outer div so MDL does not destroy Iron Router events (see https://github.com/Zodiase/meteor-mdl/issues/2)-->
+    <div>
+        <!-- MDL layout container -->
+        <div class="mdl-layout mdl-js-layout mdl-layout__header--scroll">
+            <!-- Header -->
+            {{> topnav}}
 
-        <!-- Material Design Light (MDL) content container -->
-        <main class="mdl-layout__content">
-            <div class="page-content">
-                <!-- MDL content goes here -->
+            <!-- Material Design Light (MDL) content container -->
+            <main class="mdl-layout__content">
+                <div class="page-content">
+                    <!-- MDL content goes here -->
 
-                <div class="content-container">
+                    <div class="content-container">
                         <!-- Error messages - dismissable -->
                         <div>{{> errors}}</div>
 
-                    <!-- Variable content container -->
-                    <div>
-                        {{> yield "content"}}
+                        <!-- Variable content container -->
+                        <div>
+                            {{> yield "content"}}
+                        </div>
                     </div>
+
                 </div>
+            </main>
 
-            </div>
-        </main>
-
-        <!-- Footer -->
-        {{> footer}}
+            <!-- Footer -->
+            {{> footer}}
+        </div>
     </div>
 </template>

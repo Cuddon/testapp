@@ -1,0 +1,74 @@
+<!--
+    Model Item template (summary for viewing a list of models)
+    Called by the view/Edit project template
+-->
+
+<template name="listmodels">
+    <div class="section">
+        <h3 class="section-title">Models</h3>
+        <h5 class="section-subtitle">Select a model or add a new one</h5>
+
+        <!-- Add Model floating button -->
+        {{#if isMenuEnabled.modelAdd}}
+            <button class="add-model mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
+                    id="addmodel" name="addmodel">
+                <i class="material-icons">add</i>
+            </button>
+        {{else}}
+            <button class="add-model mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored "
+                    id="addmodel" name="addmodel" disabled>
+                <i class="material-icons">add</i>
+            </button>
+        {{/if}}
+        <div class="mdl-tooltip" for="addmodel">Add Model</div>
+
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+            for="model-item-card-menu">
+            <li class="mdl-menu__item">Some Action</li>
+            <li disabled class="mdl-menu__item">Disabled Action</li>
+            <li class="mdl-menu__item">Yet Another Action</li>
+        </ul>
+
+        <div class="mdl-grid">
+            {{#each modelsList}}
+                {{> modelItem}}
+            {{/each}}
+        </div>
+    </div>
+</template>
+
+
+<template name="modelItem">
+
+    <!-- MDL Card-->
+    <div class="model-item-card mdl-card mdl-shadow--2dp">
+
+        <!-- Title section -->
+        <div class="model-item mdl-card__title" style="background: url('{{icon}}') center / cover;">
+            <h2 class="mdl-card__title-text">
+                <small>{{name}}</small>
+            </h2>
+        </div>
+
+        <!-- Supporting Text section -->
+        <div class="model-item mdl-card__supporting-text">
+            <small>{{description}}</small>
+        </div>
+
+        <!-- Actions section -->
+        <div class="mdl-card__actions mdl-card--border">
+            <button class="model-item mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Open</button>
+        </div>
+
+        <!-- Menu section -->
+        <div class="mdl-card__menu">
+            <!-- Right aligned menu below button -->
+            <button id="model-item-card-menu" class="mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">more_vert</i>
+            </button>
+
+        </div>
+    </div>
+
+</template>
+

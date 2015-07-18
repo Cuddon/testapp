@@ -74,3 +74,4 @@ useraccounts:bootstrap@1.11.1
 useraccounts:core@1.11.1
 webapp@1.2.0
 webapp-hashing@1.0.3
+zodiase:mdl@1.0.0

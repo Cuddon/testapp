@@ -15,6 +15,7 @@ Template.viewEditModel.events({
         return false;
     },
 
+
     // Edit button is clicked
     'click .edit-button': function () {
 

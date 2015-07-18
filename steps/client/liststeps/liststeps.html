@@ -1,0 +1,52 @@
+<template name="listSteps">
+    <div class="section">
+        <h3 class="section-title">Steps</h3>
+        <h5 class="section-subtitle">Select a step or add a new one</h5>
+
+        <!-- Add Step floating button -->
+        {{#if isMenuEnabled.stepAdd}}
+            <button class="add-step mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
+                    id="addstep" name="addstep">
+                <i class="material-icons">add</i>
+            </button>
+        {{else}}
+            <button class="add-model mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored "
+                    id="addstep" name="addstep" disabled>
+                <i class="material-icons">add</i>
+            </button>
+        {{/if}}
+        <div class="mdl-tooltip" for="addstep">Add Model</div>
+
+
+        <div class="mdl-grid">
+            {{#each stepList}}
+                {{> stepItem}}
+            {{/each}}
+
+        </div>
+    </div>
+</template>
+
+<template name="stepItem">
+    <hr>
+
+    <!-- Details of a step -->
+    <p>{{name}}</p>
+
+    <p>{{description}}</p>
+
+    <!-- Actions on the selected step -->
+    <button href="#" class="step-item">Open</button>
+
+    <!-- Other actions on the selected step -->
+    <div >
+        <ul class="dropdown-menu">
+            <li><a href="#" class="step-clone">Clone</a></li>
+            <li class="divider"></li>
+            <li><a href="#" class="step-delete">Delete</a></li>
+        </ul>
+    </div>
+
+    <div class="list-group-separator"></div>
+</template>
+
