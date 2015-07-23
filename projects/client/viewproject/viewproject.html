@@ -1,39 +1,38 @@
-<!--
-    View  a project
--->
+<!-- View  a project -->
 
 <template name="viewProject">
-    <div class="section">
-        <h3 class="section-title">Project</h3>
+    <div>
+        <img class="circle top-panel-image" src="{{project.logo}}">
+    </div>
 
-        <div class="mdl-grid">
-            <div class="mdl-cell--2-col">
-                <img class="project-image-medium" src="{{project.logo}}" alt="icon">
-            </div>
+    <!-- Close and edit buttons -->
+    <a class="close-button waves-effect waves-light btn"><i class="material-icons left">clear</i>close</a>
+    <a class="edit-button waves-effect waves-light btn"><i class="material-icons left">create</i>edit</a>
 
-            <div class="mdl-cell--4-col">
-                <h5 class="section-subtitle">{{project.name}}</h5>
-                <p><small>Description: {{project.description}}</small>
-                </p>
-            </div>
+    <!--
+    Limit width of block to 50% of the screen width
+    Centre the text items within the block
+    Text area is the full width of the block
+    Text area grows when additional lines added
+    -->
+    <div class="row">
+        <div class="col s12 m12 l8 offset-l2">
+            <h4 class="center-align">{{project.name}}</h4>
+            <h5 class="center-align">{{project.description}}</h5>
         </div>
 
-        <!-- project comment -->
-        <div class="mdl-grid">
-            <div class="mdl-cell--6-col">
-                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                        <textarea class="mdl-textfield__input" rows="5" id="projectComment" name="projectComment"
-                                  value="{{project.comment}}"></textarea>
-                    <label class="mdl-textfield__label" for="projectComment">Comment</label>
+        <div class="col s12 m6 offset-m3 l6 offset-l3">
+            <form>
+                <div class="input-field">
+                    <textarea id="notes" class="materialize-textarea notes">{{project.notes}}</textarea>
+                    <label for="notes">Notes</label>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 
-
-
     <!-- Models for this project -->
-    {{> listmodels}}
+    {{> listModels}}
 
 </template>
 

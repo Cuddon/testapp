@@ -2,7 +2,7 @@
  * Created by Andrew on 8/06/2015.
  */
 
-Template.listmodels.events({
+Template.listModels.events({
 
     // Add model button is clicked
     "click .add-model": function () {
@@ -17,17 +17,6 @@ Template.listmodels.events({
 });
 
 Template.modelItem.events({
-
-    // Add model button is clicked
-    "click .add-model": function () {
-        var projectId = this.project._id;
-
-        //Open the selected model view/edit template
-        Router.go('addmodel', {projectId: projectId});
-
-        // Prevent default form submit
-        return false;
-    },
 
     // A model card item is clicked
     "click .model-item": function () {

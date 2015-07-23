@@ -13,14 +13,6 @@ Template.listProjects.events({
     },
 
 
-    "click .about": function () {
-        Router.go("/about");
-
-        // Prevent default form action
-        return false;
-    },
-
-
     // A project card/list item is clicked
     "click .project-item": function () {
         var projectId = this._id;
@@ -33,9 +25,9 @@ Template.listProjects.events({
     },
 
 
-    // Cancel button is clicked, go back to projects list
+    // Cancel button is clicked, go back to home page
     "click .cancel-button": function () {
-        Router.go("projects");
+        Router.go("/home");
 
         // Prevent default form action
         return false;
@@ -43,7 +35,7 @@ Template.listProjects.events({
 
 
     // Clone button is clicked
-    "click .project-clone": function () {
+    "click .clone-button": function () {
         alert("Not implemented");
 
         // Prevent default form action
@@ -51,7 +43,15 @@ Template.listProjects.events({
     },
 
     // Share button is clicked
-    "click .project-share": function () {
+    "click .share-button": function () {
+        alert("Not implemented");
+
+        // Prevent default form action
+        //return false;
+    },
+
+    // Share button is clicked
+    "click .info-button": function () {
         alert("Not implemented");
 
         // Prevent default form action
@@ -60,12 +60,12 @@ Template.listProjects.events({
 
 
     // Delete button is clicked
-    "click .project-delete": function () {
+    "click .delete-button": function () {
         // TODO: Deleting a project should delete all models and steps
         // TODO: If not empty then deleting a model should require a second confirmation from the user. User shoudl type the model name exactly
 
         var projectId = this._id;
-        var conf = confirm("Please confirm.\nDo you want to delete project: " + this.name + ". \n***This will also delete all models and steps used by this project.***");
+        var conf = confirm("Please confirm.\nDo you want to delete project: " + this.name + ". \n\n***This will also delete all models and steps used by this project.***");
         if (conf === true) {
             // Add the new project to the database using a server method
             Meteor.call('deleteProject', projectId, function (error) {

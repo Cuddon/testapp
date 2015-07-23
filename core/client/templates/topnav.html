@@ -2,75 +2,54 @@
     Top Navigation menu bar
 -->
 
-<template name="topnav">
+<template name="topNav">
 
-    <!-- Always show a header, even in smaller screens. -->
-    <header class="mdl-layout__header">
-        <div class="mdl-layout-icon"></div>
+    <nav id="topNav" role="navigation">
+        <div class="nav-wrapper container">
+            <a href="/" class="brand-logo">{{appName}}</a>
 
-        <div class="mdl-layout__header-row">
-            <!-- App Title -->
-            <a class="mdl-navigation__link" href="/"><span class="mdl-layout-title">{{appName}}</span></a>
+            <a href="#" data-activates="sideNav" class="button-collapse"><i class="material-icons">menu</i></a>
 
-            <!-- Add spacer, to align navigation to the right -->
-            <div class="mdl-layout-spacer"></div>
+            <!-- Top Nav-->
+            <ul class="right hide-on-med-and-down">
+                {{> navItems}}
+            </ul>
 
-            <!-- Navigation. Hide it in small screens. -->
-            <nav class="mdl-navigation mdl-layout--large-screen-only">
-                <a class="mdl-navigation__link" href="/">Home</a>
-
-                {{#if isMenuEnabled.projects}}
-                    <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
-                {{/if}}
-
-                {{#if isMenuEnabled.login}}
-                    <a class="mdl-navigation__link" href="auth">Login</a>
-                {{else}}
-                    <a class="mdl-navigation__link" href="auth">Account</a>
-                {{/if}}
-
-                {{#if isMenuEnabled.messages}}
-                    <a class="mdl-navigation__link mdl-badge" href="" data-badge="4">Messages</a>
-                {{/if}}
-
-                {{#if isMenuEnabled.settings}}
-                    <a class="mdl-navigation__link" href="{{ pathFor 'settings' }}">Settings dropdown</a>
-                {{/if}}
-
-                {{#if isMenuEnabled.about}}
-                    <a class="mdl-navigation__link" href="{{ pathFor 'about' }}">About</a>
-                {{/if}}
-            </nav>
+            <!-- Side Nav for small mobile devices -->
+            <ul class="side-nav" id="sideNav">
+                {{> navItems}}
+            </ul>
         </div>
-    </header>
+    </nav>
 
-    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">{{appName}}</span>
-        <nav class="mdl-navigation">
-            <a class="mdl-navigation__link" href="/">Home</a>
+    {{#if activity 'Home'}}
+        {{> infoPanel}}
+    {{/if}}
 
-            {{#if isMenuEnabled.projects}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
-            {{/if}}
+</template>
 
-            {{#if isMenuEnabled.login}}
-                <a class="mdl-navigation__link" href="auth">Login</a>
-            {{else}}
-                <a class="mdl-navigation__link" href="auth">Account</a>
-            {{/if}}
 
-            {{#if isMenuEnabled.messages}}
-                <a class="mdl-navigation__link mdl-badge" href="" data-badge="4">Messages</a>
-            {{/if}}
+<template name="navItems">
+    {{#if isMenuEnabled.projects}}
+        <li><a href="{{ pathFor 'projects' }}">Projects</a></li>
+    {{/if}}
 
-            {{#if isMenuEnabled.settings}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'settings' }}">Settings dropdown</a>
-            {{/if}}
+    {{#if isMenuEnabled.login}}
+        <li><a href="{{ pathFor 'auth' }}">Login</a></li>
+    {{else}}
+        <li><a href="{{ pathFor 'auth' }}">Account</a></li>
+    {{/if}}
 
-            {{#if isMenuEnabled.about}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'about' }}">About</a>
-            {{/if}}
-        </nav>
-    </div>
+    {{#if isMenuEnabled.messages}}
+        <li><a href="" data-badge="4">Messages</a></li>
+    {{/if}}
+
+    {{#if isMenuEnabled.settings}}
+        <li><a href="{{ pathFor 'settings' }}">Settings dropdown</a></li>
+    {{/if}}
+
+    {{#if isMenuEnabled.about}}
+        <li><a href="{{ pathFor 'about' }}">About</a></li>
+    {{/if}}
 
 </template>

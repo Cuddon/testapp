@@ -7,11 +7,18 @@
     right: 0;
     top: 0;
     margin-right: 40px;
-    margin-top: 80px;
+    margin-top: 160px;
     z-index: 900;
 }
 
 /* Project Card in ListProjects view */
+.card-action > div i.material-icons {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+
+/* OLD */
 .project-card.mdl-card {
     width: 336px;
     height: 200px;

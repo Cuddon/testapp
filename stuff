@@ -1,3 +1,49 @@
+
+
+
+
+
+
+Centre a block
+
+
+.center-block {
+    margin-left: auto;
+    margin-right: auto;
+    display: black
+
+}
+
+
+
+
+Shadows
+
+
+A z-depth-0 can be used to remove shadows from elements that have z-depths by default.
+See http://materializecss.com/shadow.html
+
+
+// TopNav
+// Perhaps add a second row and change its color to white.
+
+
+// Color
+
+body: #fafafa /*Materilaize: grey lighten-5 */
+jumbotron etc: #f5f5f5 /* Materialize grey lighten-4 */
+
+
+Andrew Cuddon | Senior Program Manager
+Australian Unity Limited
+114 Albert Road | South Melbourne  VIC  3205
+T +613 8682  6052 | M 0409 093 963
+W www.australianunity.com.au<http://www.australianunity.com.au/>
+E acuddon@australianunity.com.au<mailto:acuddon@australianunity.com.au>
+[cid:image002.jpg@01D0C3B9.590A07A0]<http://intranet.australianunity.net.au/prj/hris/Pages/home.aspx>
+
+
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
