@@ -23,7 +23,7 @@ Meteor.methods({
             name: String,
             description: String,
             comment: String,
-            logo: String
+            image: String
         });
 
         // Ensure mandatory fields have been completed
@@ -32,8 +32,8 @@ Meteor.methods({
         }
 
         // Set a default logo
-        if (!project.logo) {
-            project.logo = "http://lorempixel.com/336/200/abstract";     // Default project logo. 320x200px
+        if (!project.image) {
+            project.image = "http://lorempixel.com/336/200/abstract";     // Default project logo. 320x200px
         }
 
         // Add additional fields (server use only, never transmitted to a client)

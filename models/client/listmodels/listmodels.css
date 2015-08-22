@@ -1,5 +1,28 @@
 
 
+
+/* Add model Fast Action Button*/
+#add-model-button {
+    position: fixed;
+    display: block;
+    right: 0;
+    top: 0;
+    margin-right: 32px;
+    margin-top: 240px;
+    z-index: 900;
+}
+
+
+.model-item-card {
+   /* width:90%;  */   /* 90% of the cell width */
+    margin-bottom: 10%;
+    margin-right: 10%;
+}
+
+
+
+
+/* OLD */
 .model-item-card > .card-title {
     color: #3c3f41;
 }

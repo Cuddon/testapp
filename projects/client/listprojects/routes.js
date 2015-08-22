@@ -24,7 +24,6 @@ Router.route('/projects', {
         // Render the template into the content area
         if (Meteor.userId()) {
             this.render('listProjects', {to: 'content'});
-            Session.set('activity', "Projects");
         } else {
             alert("You must be logged in to view your projects");
             this.render('Home', {to: 'content'});

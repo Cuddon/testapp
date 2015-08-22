@@ -1,0 +1,85 @@
+<template name="header">
+
+    <header class="mdl-layout__header default-primary-color primary-text-color">
+
+        <!-- Menu button to open the drawer -->
+        <div class="mdl-layout-icon"></div>
+
+        <!-- Top row, always visible -->
+        <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <button class="home-button mdl-button mdl-js-button mdl-js-ripple-effect">
+                <span class="mdl-layout-title mdl-color-text--primary-contrast">{{appName}}</span>
+            </button>
+
+            <!-- Align nav links and icons to the right -->
+            <div class="mdl-layout-spacer"></div>
+
+            <!-- Search -->
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
+                  mdl-textfield--floating-label mdl-textfield--align-right">
+                <label class="mdl-button mdl-js-button mdl-button--icon" for="header-search">
+                    <i class="material-icons">search</i>
+                </label>
+
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="search" id="header-search"/>
+                </div>
+            </div>
+        </div>
+
+        {{> headerRow2 }}
+    </header>
+
+    {{> sideDraw }}
+
+</template>
+
+
+<template name="sideDraw">
+    <!-- Side menu/draw -->
+    <div class="mdl-layout__drawer">
+        <button class="home-button mdl-button mdl-js-button mdl-js-ripple-effect">
+            <span class="mdl-layout-title mdl-color-text--accent">{{appName}}</span>
+        </button>
+        Username:
+        <nav class="mdl-navigation">
+            {{#if isMenuEnabled.projects}}
+                <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
+            {{/if}}
+
+            {{#if isMenuEnabled.login}}
+                <a class="mdl-navigation__link" href="{{ pathFor 'auth' }}">Login</a>
+            {{else}}
+                <a class="mdl-navigation__link" href="{{ pathFor 'auth' }}">My Account</a>
+            {{/if}}
+
+            {{#if isMenuEnabled.messages}}
+                <a class="mdl-navigation__link" href="" data-badge="4">Messages</a>
+            {{/if}}
+
+            {{#if isMenuEnabled.settings}}
+                <a class="mdl-navigation__link" href="{{ pathFor 'settings' }}">Settings</a>
+            {{/if}}
+
+            {{#if isMenuEnabled.about}}
+                <a class="mdl-navigation__link" href="{{ pathFor 'about' }}">About</a>
+            {{/if}}
+        </nav>
+    </div>
+
+</template>
+
+<template name="headerRow2">
+
+    {{#if currentTemplate}}
+        <!-- Show only if not on the home pageBack button (Keep inside a span for the header row) -->
+        <span class="headerRow2">
+            <button class="back-button mdl-button mdl-js-button mdl-button--icon">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            <span class="activity">{{activity}}</span>
+        </span>
+    {{/if}}
+
+</template>

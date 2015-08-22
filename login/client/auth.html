@@ -1,9 +1,13 @@
 <!-- Login widget -->
 
 <template name="auth">
-    <div>
+    <div class="mdl-grid" style="max-width: 40%">
+        <div class="mdl-cell">
         {{> loginButtons}}
-        {{> atForm}}
+        </div>
+    </div>
+
+    <div class="mdl-grid">
         {{ currentUserId }}
         {{ currentUserName }}
     </div>

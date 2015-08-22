@@ -1,0 +1,72 @@
+/* CSS declarations go here */
+
+.app-layout {
+    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+}
+
+.app-content {
+}
+
+.mdl-grid > .mdl-cell {
+    border-color: #F5F5F5;    /* Grey 100 */
+    border-style: solid;
+    border-width: thin;
+}
+
+
+.text-centre-vertically, .text-center-vertically {
+    margin-top: auto;
+    margin-bottom: auto;
+    /*
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    */
+}
+
+.centre-block {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* The block must have a set width (can be %), otherwise it's full width and can't be centred */
+}
+
+.instructions {
+    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 10.5pt;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+
+
+.modal-dialog {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 9999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    pointer-events: none;
+}
+
+.modal-dialog-content {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: 60%;
+    padding: 20px;
+
+    background: white;
+    color: #0277bd;
+
+    z-index: 99999;
+}
+

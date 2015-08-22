@@ -4,50 +4,68 @@
 
 <template name="listProjects">
 
-    <img class="circle top-panel-image" src="/images/sunset.jpg">
+    <!-- Instructions row - text on background paper -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
 
-    <!-- List the projects, one per panel -->
-    <h3>Projects<br>
-        <small>Select a project or add a new one</small>
-    </h3>
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="secondary-text-color instructions">Click/tap an existing project card or add a new one with the + button</div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+    </div>
+
+    <!-- Content Row: List a user's projects -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
+            {{#if projectsList}}
+                <div class="mdl-grid mdl-grid--no-spacing">
+                    {{#each projectsList}}
+                        {{> projectItem}}
+                    {{/each}}
+                </div>
+            {{else}}
+                <p><i class="material-icons">info</i>You have no projects. Click/tap the + button to add a project.</p>
+            {{/if}}
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+            <div class="centre-block" style="width: 56px;">
+            </div>
+        </div>
+    </div>
 
     <!-- Add Project floating button -->
     {{#if isMenuEnabled.projectAdd}}
-        <a href="/addproject" class="btn-floating waves-effect waves-light red tooltipped" data-position="bottom"
-           data-delay="50" data-tooltip="Add a project" id="addproject" name="addproject">
-            <i class="material-icons">add</i></a>
+        <button id="add-project-button" class="add-project-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color">
+            <i class="material-icons">add</i>
+        </button>
     {{else}}
-        <a href="/addproject" class="disabled red" id="addproject" name="addproject"><i
-                class="material-icons">add</i></a>
+        <!-- FIXME: display message if no projects -->
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color" disabled>
+            <i class="material-icons">add</i>
+        </button>
     {{/if}}
-
-    <!-- List user's projects -->
-    <div class="row">
-        {{#each projectsList}}
-            {{> projectItem}}
-        {{/each}}
-    </div>
-
 </template>
 
 
 <template name="projectItem">
 
-    <div class="col s6 m4 l3">
-        <div class="project-item-card card hoverable">
-            <div class="project-item card-image">
-                <img src="{{logo}}">
-                <span class="card-title">{{name}}</span>
-            </div>
-            <div class="card-action">
-                <div class="center-align">
-                    <i class="project-item waves-effect waves-light grey-text material-icons hoverable">apps</i>
-                    <i class="clone-button waves-effect waves-light grey-text material-icons hoverable">content_copy</i>
-                    <i class="delete-button waves-effect waves-light grey-text material-icons hoverable">delete</i>
-                    <i class="info-button waves-effect waves-light grey-text material-icons hoverable">info</i>
+    <div class="mdl-cell mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+        <div class="project-item-card">
+            <div class="project-item golden-ratio-landscape default-paper-color mdl-shadow--4dp"
+                 style="background-image: url('{{image}}')">
+                <div class="content mdl-typography--title mdl-typography--text-center mdl-color-text--white">
+                    {{name}}
                 </div>
             </div>
         </div>
     </div>
 </template>
+
 

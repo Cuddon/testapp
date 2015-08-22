@@ -33,7 +33,7 @@ Meteor.methods({
             name: String,
             description: String,
             comment: String,
-            logo: String,
+            image: String,
             // Optional, but if present must be an array of strings.
             sharedToId: Match.Optional([String])
         });

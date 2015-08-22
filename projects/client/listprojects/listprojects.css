@@ -1,134 +1,25 @@
 /* CSS declarations go here */
 
 /* Add project Fast Action Button*/
-#addproject {
+#add-project-button {
     position: fixed;
     display: block;
     right: 0;
     top: 0;
-    margin-right: 40px;
-    margin-top: 160px;
+    margin-right: 32px;
+    margin-top: 148px;
     z-index: 900;
 }
 
-/* Project Card in ListProjects view */
-.card-action > div i.material-icons {
-    margin-left: 5px;
-    margin-right: 5px;
+
+.project-item-card {
+    width: 90%; /* 90% of the cell width */
+    margin-bottom: 10%;
+}
+
+.project-item {
+    border-radius: 2px;
 }
 
 
-/* OLD */
-.project-card.mdl-card {
-    width: 336px;
-    height: 200px;
-    margin-right: 20px;
-    margin-bottom: 40px;
-}
 
-.project-card > .mdl-card__title,
-.project-card > .mdl-card__supporting-text,
-.project-card > .mdl-card__actions {
-    color: #fff;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-/* Actions section */
-.project-card > .mdl-card__actions {
-    position: relative;
-    height: 52px;
-    padding: 16px;
-    color: #fff;
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.actionsMenu {
-    position: relative;
-    left: -80px;
-    z-index: 900;
-    color: #fff;
-}
-
-/*
-    see http://www.goldenapplewebdesign.com/responsive-aspect-ratios-with-pure-css/
-
-    When declaring percentages instead of fixed values for padding, the percentage is calculated based on
-    the WIDTH of the element in question, even if we are declaring an inherently vertical height effecting value
-    such as padding-top or padding-bottom. To take advantage of this for the purpose of maintaining our height
-    relative to width, all we have to do is a little math!
-
-    padding-top calculation:
-    A:B (width:height)
-    B / A * 100 = C%
-
-    16:9 (A=16, B=9): C = 9/16*100 = 56.25%
-    4:3  (A=4, B=3): C = 3/4*100 = 75.0%
-
-    1:1.618 Portrait (A=1, B=1.618): C = 161.8%
-    1.618:1 Landscape (A=1.168, B = 1): C = 61.8%
-
-*/
-
-
-
-  .golden-ratio-portrait {
-    position: relative;
-    border: 1px solid gray;
-}
-
-.golden-ratio-portrait:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: 161.8%;  /* 1:1.618 */
-}
-
-.golden-ratio-portrait > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.golden-ratio-landscape {
-    position: relative;
-    border: 1px solid gray;
-}
-
-.golden-ratio-landscape:before {
-    display: block;
-    content: "";
-    width: 100%;
-    padding-top: 61.8%;  /* 1.618:1 */
-}
-
-.golden-ratio-landscape > .content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-}
-
-.panel-image {
-    background-color: #3c3f41;
-}
-
-.panel-image > img {
-    position: relative;
-    overflow: hidden;
-    max-height:100%;
-    width:100%;
-}
-
-.panel-inner-content {
-    padding: 10px;
-}
-
-.panel {
-    margin-bottom: 10px;
-    -webkit-box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
-    -moz-box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
-    box-shadow: 6px 6px 5px 1px rgba(0,0,0,0.32);
-}

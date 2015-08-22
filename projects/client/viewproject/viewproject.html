@@ -1,35 +1,77 @@
 <!-- View  a project -->
 
 <template name="viewProject">
-    <div>
-        <img class="circle top-panel-image" src="{{project.logo}}">
+
+    <!-- Instructions row - text on background paper -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="secondary-text-color instructions"></div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
     </div>
 
-    <!-- Close and edit buttons -->
-    <a class="close-button waves-effect waves-light btn"><i class="material-icons left">clear</i>close</a>
-    <a class="edit-button waves-effect waves-light btn"><i class="material-icons left">create</i>edit</a>
 
     <!--
-    Limit width of block to 50% of the screen width
-    Centre the text items within the block
-    Text area is the full width of the block
-    Text area grows when additional lines added
+        Limit width of block to 50% of the screen width
+        Centre the text items within the block
+        Text area is the full width of the block
+        Text area grows when additional lines added
     -->
-    <div class="row">
-        <div class="col s12 m12 l8 offset-l2">
-            <h4 class="center-align">{{project.name}}</h4>
-            <h5 class="center-align">{{project.description}}</h5>
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--1-col">
         </div>
 
-        <div class="col s12 m6 offset-m3 l6 offset-l3">
-            <form>
-                <div class="input-field">
-                    <textarea id="notes" class="materialize-textarea notes">{{project.notes}}</textarea>
-                    <label for="notes">Notes</label>
+        <div class="mdl-cell mdl-cell--1-col">
+            <div class="golden-ratio-landscape default-paper-color"
+                 style="background: url('{{project.image}}')no-repeat center center; background-size: cover;
+                         opacity: 0.15">
+                <div class="content-no-background">
                 </div>
-            </form>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="mdl-grid mdl-grid--no-spacing">
+                <div class="mdl-cell mdl-cell--6-col">
+                    <h4>{{project.name}}</h4>
+                    <h6 class="secondary-text-color">{{project.description}}</h6>
+                </div>
+                <div class="mdl-cell mdl-cell--6-col">
+                    <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield textfield-demo">
+                            <textarea class="mdl-textfield__input" type="text" rows= "5" id="notes">{{project.comment}}</textarea>
+                            <label class="mdl-textfield__label" for="notes">notes</label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--1-col">
+        </div>
+
+        <div class="mdl-cell mdl-cell--1-col">
+            <div class="secondary-text-color instructions centre-block" style="width: 24px">
+                <!-- Dropdown - right aligned menu below button -->
+                <button id="view-project-dropdown" class="mdl-button mdl-js-button mdl-button--icon right">
+                    <i class="material-icons">more_vert</i>
+                </button>
+            </div>
+            <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
+                for="view-project-dropdown">
+                <li class="edit-button mdl-menu__item"><i class="material-icons">edit</i> Edit</li>
+                <li class="edit-button mdl-menu__item"><i class="material-icons">edit</i> Info</li>
+                <li class="clone-button mdl-menu__item"><i class="material-icons">edit</i> Clone</li>
+                <li disabled class="share-button mdl-menu__item"><i class="material-icons">edit</i> Share</li>
+                <li class="delete-button mdl-menu__item"><i class="material-icons">delete</i> Delete</li>
+            </ul>
         </div>
     </div>
+
 
     <!-- Models for this project -->
     {{> listModels}}

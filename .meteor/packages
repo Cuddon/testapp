@@ -7,8 +7,7 @@
 meteor-platform
 accounts-ui
 accounts-password
-useraccounts:bootstrap
 accounts-google
 iron:router
 accounts-meteor-developer
-materialize:materialize
+zodiase:mdl

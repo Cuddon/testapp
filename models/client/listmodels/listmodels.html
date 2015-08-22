@@ -4,44 +4,94 @@
 -->
 
 <template name="listModels">
-    <h3 class="section-title">Models</h3>
-    <h5 class="section-subtitle">Select a model or add a new one</h5>
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--1-col">
+        </div>
 
-    <!-- Add Model floating button -->
+        <div class="mdl-cell mdl-cell--11-col">
+        </div>
+    </div>
+
+    <!-- Instructions row - text on background paper -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="secondary-text-color instructions">Click/tap a existing project card or add a new one</div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+    </div>
+
+    <!-- Content Row: List a project's models -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--1-col">
+        </div>
+        <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone">
+            <h5 class="section-title">Models</h5>
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
+            {{#if modelsList}}
+                <div class="mdl-grid mdl-grid--no-spacing">
+                    {{#each modelsList}}
+                        {{> modelItem}}
+                    {{/each}}
+                </div>
+            {{else}}
+                <!-- FIXME: display message if no models -->
+                <p><i class="material-icons">info</i>This project has no buttons. Click/tap the + button to add a model.</p>
+            {{/if}}
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+            <div class="centre-block" style="width: 56px;">
+            </div>
+        </div>
+    </div>
+
+    <!-- Add model floating button -->
     {{#if isMenuEnabled.modelAdd}}
-        <button class="add-model btn-floating waves-effect waves-light red tooltipped" data-position="bottom"
-                data-delay="50" data-tooltip="Add a project" id="addmodel" name="addmodel">
-            <i class="material-icons">add</i></button>
+        <button id="add-model-button" class="add-model-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color">
+            <i class="material-icons">add</i>
+        </button>
     {{else}}
-        <button class="disabled red" id="addmodel" name="addmodel"><i
-                class="material-icons">add</i></button>
+        <button class="add-model-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color" disabled>
+            <i class="material-icons">add</i>
+        </button>
     {{/if}}
 
-    <div class="row">
-        {{#each modelsList}}
-            {{> modelItem}}
-        {{/each}}
-    </div>
+
 </template>
 
 
 <template name="modelItem">
-
-    <div class="col s12 m8 l4">
-        <!-- MD card -->
-        <div class="card teal lighten-2">
-            <!-- Content - Header and description -->
-            <div class="model-item card-content">
-                <div class="card-title">{{name}}</div>
-
-                <div class="card-supporting-text">{{description}}</div>
+    <div class="mdl-cell mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+        <div class="model-item-card mdl-shadow--2dp">
+            <div class="mdl-card__title golden-ratio-landscape" style="background-image: url('{{image}}')">
+                <div class="content">
+                    <h2 class="mdl-card__title-text">{{name}}</h2>
+                </div>
             </div>
+            <div class="mdl-card__supporting-text" style="height: 100%;">
+                {{description}}
+            </div>
+        </div>
+    </div>
+</template>
 
-            <div class="card-action">
-                <a class="model-item waves-effect btn-flat">Open</a>
-                <a class="delete-button waves-effect waves-light btn-flat"><i class="material-icons">delete</i></a>
-                <a class="clone-button waves-effect waves-light btn-flat"><i class="material-icons">content_copy</i></a>
 
+<template name="modelItemOLD">
+    <div class="mdl-cell mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
+        <div class="project-item-card">
+            <div class="model-item golden-ratio-landscape default-paper-color mdl-shadow--4dp"
+                 style="background-image: url('{{image}}')">
+                <div class="content mdl-typography--title mdl-typography--text-center mdl-color-text--white">
+                    {{name}}
+                    <div class="secondary-text-color">{{description}}</div>
+                </div>
             </div>
         </div>
     </div>

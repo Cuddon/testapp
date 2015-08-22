@@ -16,7 +16,7 @@ Template.addModel.events({
       description:  event.target.modeldescription.value,
       type:         event.target.modeltype.value,
       comment:      event.target.modelcomment.value,
-      icon:         event.target.modelicon.value,
+      image:         event.target.modelImage.value,
       projectId:    projectId
     };
 

@@ -1,5 +1,5 @@
 
-AccountsTemplates.configureRoute('signIn');
+//AccountsTemplates.configureRoute('signIn');
 
 
 

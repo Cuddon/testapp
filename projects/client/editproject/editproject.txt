@@ -39,9 +39,9 @@
     <div class="mdl-grid">
         <div class="mdl-cell--4-col">
             <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                <input type="url" class="mdl-textfield__input" id="projectLogo" name="projectLogo"
-                       value="{{project.logo}}" disabled/>
-                <label class="mdl-textfield__label" for="projectLogo">Project logo</label>
+                <input type="url" class="mdl-textfield__input" id="projectImage" name="projectLogo"
+                       value="{{project.image}}" disabled/>
+                <label class="mdl-textfield__label" for="projectImage">Project Image/Logo</label>
             </div>
         </div>
     </div>

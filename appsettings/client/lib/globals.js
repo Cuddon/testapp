@@ -1,9 +1,9 @@
 /**
  * Declare settings global variable.
- * Filename starts will aaa so it's loaded before other files.
+ * In 'lib' so it will load before other .js files.
  */
 
 
-// Declare (server) settings a global object
+// Declare (client) settings on a global object (does not vary by session)
 clientSettings = {};
 
