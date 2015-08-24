@@ -1,0 +1,54 @@
+<!-- Login widget -->
+
+<template name="account">
+
+    <!-- Instructions row - text on background paper -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="secondary-text-color instructions">Create and account or log in</div>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+    </div>
+
+    <!-- Login buttons -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            {{#if loggingIn}}
+                {{> signingIn}}
+            {{else}}
+                {{#if currentUser}}
+                    <!-- Logged in -->
+                    {{> signedIn}}
+                {{else}}
+                    <!-- User not logged in -->
+                    {{> signedOut}}
+                {{/if}}
+            {{/if}}
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+    </div>
+
+    <!-- Account Details -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
+    </div>
+
+</template>
+

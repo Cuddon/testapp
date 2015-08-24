@@ -42,16 +42,16 @@
         <button class="home-button mdl-button mdl-js-button mdl-js-ripple-effect">
             <span class="mdl-layout-title mdl-color-text--accent">{{appName}}</span>
         </button>
-        Username:
+        Name:
         <nav class="mdl-navigation">
             {{#if isMenuEnabled.projects}}
                 <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
             {{/if}}
 
             {{#if isMenuEnabled.login}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'auth' }}">Login</a>
+                <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Login</a>
             {{else}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'auth' }}">My Account</a>
+                <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Account</a>
             {{/if}}
 
             {{#if isMenuEnabled.messages}}

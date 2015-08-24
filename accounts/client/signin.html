@@ -1,0 +1,30 @@
+
+<template name="signedOut">
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Sign In</button>
+    <button class="register-button mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Register</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Forgot Password</button>
+    {{> loginButtons}}
+</template>
+
+
+<template name="signedIn">
+    <p>Hi {{currentUser._id}}!</p>
+    <button class="signout-button mdl-button mdl-js-button mdl-js-ripple-effect">Sign Out</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Change User Name</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Upgrade Account</button>
+
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Change Password</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Suspend Account</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Delete Account</button>
+    <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Suspend Account</button>
+
+    {{> loginButtons}}
+
+
+
+</template>
+
+<template name="signingIn">
+    <p>Signing in ....</p>
+    <div class="mdl-spinner mdl-js-spinner is-active"></div>
+</template>
