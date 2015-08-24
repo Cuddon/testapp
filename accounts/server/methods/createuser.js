@@ -3,7 +3,7 @@
  */
 
 Meteor.methods({
-    createUser: function (options) {
+    createNewUser: function (options) {
 
         //TODO: Check if this is secure sending the password to a method or should we call Accounts.createUser from the client
         // Check that all attributes are of the correct type
