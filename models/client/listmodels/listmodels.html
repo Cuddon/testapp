@@ -4,26 +4,8 @@
 -->
 
 <template name="listModels">
-    <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--1-col">
-        </div>
 
-        <div class="mdl-cell mdl-cell--11-col">
-        </div>
-    </div>
-
-    <!-- Instructions row - text on background paper -->
-    <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--2-col">
-        </div>
-
-        <div class="mdl-cell mdl-cell--8-col">
-            <div class="secondary-text-color instructions">Click/tap a existing project card or add a new one</div>
-        </div>
-
-        <div class="mdl-cell mdl-cell--2-col">
-        </div>
-    </div>
+    {{> instructionsRow text2="Click/tap a existing model card or add a new one"}}
 
     <!-- Content Row: List a project's models -->
     <div class="mdl-grid mdl-grid--no-spacing">

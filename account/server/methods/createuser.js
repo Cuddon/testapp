@@ -32,13 +32,16 @@ Accounts.onCreateUser(function (options, user) {
     });
 
     user.profile.name = options.profile.name.trim();
-    user.profile.account = {
+    user.account = {
         type: 100           // Foundation Free
     };
 
     // Default roles for role based permissions
     // Not in the user's profile because we hide these server side
-    user.roles = ['allUsers', 'projectOwner'];
+    user.roles = [
+        'allUsers',
+        'projectOwner'
+    ];
 
     return user;
 });

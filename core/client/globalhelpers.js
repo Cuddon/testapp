@@ -3,26 +3,33 @@
  */
 
 
-Template.registerHelper('appName', function(){
+Template.registerHelper('appName', function () {
     return Session.get("appName");
 });
 
-Template.registerHelper('activity', function(){
+Template.registerHelper('activity', function () {
     return Session.get("activity");
 });
 
 
+Template.registerHelper('currentRouteName', function () {
+        if (Router.current().route.getName()) {
+            return Router.current() && Router.current().route.getName().replace('.', '-');
 
-
-Template.registerHelper('currentTemplate', function(){
-        return Router.current() && Router.current().route.getName().replace('.','-');
+        } else {
+            return "home"
+        }
     }
 );
 
 
-// ifCurrentRouteIs function
-
-Template.registerHelper('ifCurrentRouteIs', function(v1) {
-        return (v1 === Router.current() && Router.current().route.getName().replace('.','-'));
+// ifCurrentRouteIsHome function
+Template.registerHelper('ifCurrentRouteIsHome', function () {
+    if (Router.current().route.getName()) {
+        return ("home" === Router.current() && Router.current().route.getName().replace('.', '-'));
+    } else {
+        // Home page
+        return true;
     }
-);
+});
+

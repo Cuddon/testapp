@@ -1,5 +1,5 @@
 /*
- 'model' publications
+ * 'model' publications
  */
 
 // Publish all models for the selected project

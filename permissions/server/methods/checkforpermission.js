@@ -7,7 +7,7 @@ Meteor.methods({
     checkForPermission: function (action) {
         /**
          *
-         *  Server-side method to check where a user action is permitted
+         *  Server-side method to check whether a user action is permitted
          *  DOES NOT CHECK OWNERSHIP OF AN ITEM (Project, Model etc)
          *
          */

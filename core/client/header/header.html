@@ -42,29 +42,35 @@
         <button class="home-button mdl-button mdl-js-button mdl-js-ripple-effect">
             <span class="mdl-layout-title mdl-color-text--accent">{{appName}}</span>
         </button>
-        Name:
+
+        Name: {{currentUser.profile.name}}
+
         <nav class="mdl-navigation">
-            {{#if isMenuEnabled.projects}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
-            {{/if}}
+            {{#with isMenuEnabled}}
+                {{#if projects}}
+                    <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
+                {{/if}}
 
-            {{#if isMenuEnabled.login}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Login</a>
+                {{#if login}}
+                    <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Login</a>
+                {{else}}
+                    <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Account</a>
+                {{/if}}
+
+                {{#if messages}}
+                    <a class="mdl-navigation__link" href="" data-badge="4">Messages</a>
+                {{/if}}
+
+                {{#if settings}}
+                    <a class="mdl-navigation__link" href="{{ pathFor 'settings' }}">Settings</a>
+                {{/if}}
+
+                {{#if about}}
+                    <a class="mdl-navigation__link" href="{{ pathFor 'about' }}">About</a>
+                {{/if}}
             {{else}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'account' }}">Account</a>
-            {{/if}}
-
-            {{#if isMenuEnabled.messages}}
-                <a class="mdl-navigation__link" href="" data-badge="4">Messages</a>
-            {{/if}}
-
-            {{#if isMenuEnabled.settings}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'settings' }}">Settings</a>
-            {{/if}}
-
-            {{#if isMenuEnabled.about}}
-                <a class="mdl-navigation__link" href="{{ pathFor 'about' }}">About</a>
-            {{/if}}
+                <p>No permissions. Please create an account</p>
+            {{/with}}
         </nav>
     </div>
 
@@ -72,7 +78,7 @@
 
 <template name="headerRow2">
 
-    {{#if currentTemplate}}
+    {{#unless ifCurrentRouteIsHome}}
         <!-- Show only if not on the home pageBack button (Keep inside a span for the header row) -->
         <span class="headerRow2">
             <button class="back-button mdl-button mdl-js-button mdl-button--icon">
@@ -80,6 +86,6 @@
             </button>
             <span class="activity">{{activity}}</span>
         </span>
-    {{/if}}
+    {{/unless}}
 
 </template>

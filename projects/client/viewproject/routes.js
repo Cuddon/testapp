@@ -30,6 +30,7 @@ Router.route('/project/:_id', {
     action: function () {
         if (Meteor.userId()) {
             this.render('viewProject', {to: 'content'});
+            Session.set('activity', "View a Project");
         } else {
             alert("You must be logged in to add a new project");
             this.render('Home', {to: 'content'});

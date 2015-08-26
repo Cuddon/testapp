@@ -8,7 +8,7 @@
 
 
 <template name="signedIn">
-    <p>Hi {{currentUser._id}}!</p>
+    <p>Hi {{currentUser.profile.name}} ({{currentUser._id}})!</p>
     <button class="signout-button mdl-button mdl-js-button mdl-js-ripple-effect">Sign Out</button>
     <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Change User Name</button>
     <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Upgrade Account</button>
@@ -19,10 +19,8 @@
     <button class="mdl-button mdl-js-button mdl-js-ripple-effect" disabled>Suspend Account</button>
 
     {{> loginButtons}}
-
-
-
 </template>
+
 
 <template name="signingIn">
     <p>Signing in ....</p>
