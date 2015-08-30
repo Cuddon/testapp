@@ -1,6 +1,6 @@
 /*
 
- Publish server database recordsets
+ Publish server database record sets
 
  Use Meteor.publish and Meteor.subscribe to control what documents flow from the server to its clients
 

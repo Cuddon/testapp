@@ -7,7 +7,9 @@
 */
 
 Router.configure({
-    layoutTemplate: 'ApplicationLayout'
+    layoutTemplate: 'ApplicationLayout',
+    loadingTemplate: 'Loading',
+    notFoundTemplate: 'NotFound'
 });
 
 

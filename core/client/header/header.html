@@ -43,9 +43,23 @@
             <span class="mdl-layout-title mdl-color-text--accent">{{appName}}</span>
         </button>
 
-        Name: {{currentUser.profile.name}}
+        <!-- Current user -->
+        {{#if currentUser}}
+            {{#with currentUser.profile}}
+                <div class="userName">Hi
+                    {{#if alias}}
+                        {{alias}}
+                    {{else}}
+                        {{name}}
+                    {{/if}}!</div>
+            {{/with}}
+        {{else}}
+            <p>Please register or log in</p>
+        {{/if}}
 
         <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="{{ pathFor 'home' }}">Home</a>
+
             {{#with isMenuEnabled}}
                 {{#if projects}}
                     <a class="mdl-navigation__link" href="{{ pathFor 'projects' }}">Projects</a>
@@ -78,8 +92,8 @@
 
 <template name="headerRow2">
 
-    {{#unless ifCurrentRouteIsHome}}
-        <!-- Show only if not on the home pageBack button (Keep inside a span for the header row) -->
+    {{#unless isCurrentRoute "home"}}
+        <!-- Show only if not on the home page. Back button (Keep inside a span for the header row) -->
         <span class="headerRow2">
             <button class="back-button mdl-button mdl-js-button mdl-button--icon">
                 <i class="material-icons">arrow_back</i>

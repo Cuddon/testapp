@@ -1,10 +1,10 @@
 /**
- * Created by Andrew on 21/06/2015.
+ * Client settings for Projects
+ * Not editable by users
  */
 
-// Settings for Projects
 
-clientSettings.projects = {
+clientSettings.project = {
     nameMaxLength: 50,
     descriptionMaxLength: 100
 };

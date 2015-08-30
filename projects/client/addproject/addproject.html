@@ -13,7 +13,7 @@
             <div class="mdl-cell mdl-cell--4-col">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
                     <input class="mdl-textfield__input" type="text" id="name"
-                           maxlength="{{projectNameMaxLength}}"/>
+                           maxlength="{{clientSettings.project.nameMaxLength}}"/>
                     <label class="mdl-textfield__label" for="name">Project name</label>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             <div class="mdl-cell mdl-cell--4-col">
                 <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label">
                         <textarea class="mdl-textfield__input" type="text" rows="3" id="description" name="description"
-                                  maxlength="{{projectDescriptionMaxLength}}"></textarea>
+                                  maxlength="{{clientSettings.project.descriptionMaxLength}}"></textarea>
                     <label class="mdl-textfield__label" for="description">Description</label>
                 </div>
             </div>

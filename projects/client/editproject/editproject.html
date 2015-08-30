@@ -1,0 +1,70 @@
+<template name="editProject">
+
+    <form action="#">
+
+
+        <!-- project name -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input class="mdl-textfield__input" type="text" id="projectName" name="projectName"
+                           value="{{project.name}}" maxlength="{{clientSettings.project.nameMaxLength}}" required
+                           disabled/>
+                    <label class="mdl-textfield__label" for="projectName">Project name</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- project description -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" rows="3" id="projectDescription" name="projectDescription"
+                              value="{{project.description}}"
+                              maxlength="{{clientSettings.project.descriptionMaxLength}}"
+                              disabled></textarea>
+                    <label class="mdl-textfield__label" for="projectDescription">Project description</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- project comment -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <textarea class="mdl-textfield__input" rows="5" id="projectComment" name="projectComment"
+                              value="{{project.comment}}" disabled></textarea>
+                    <label class="mdl-textfield__label" for="projectComment">Project comment</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                    <input type="url" class="mdl-textfield__input" id="projectImage" name="projectLogo"
+                           value="{{project.image}}" disabled/>
+                    <label class="mdl-textfield__label" for="projectImage">Project Image/Logo</label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="mdl-grid">
+            <div class="mdl-cell--4-col">
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect close-button">
+                    Close
+                </button>
+                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent edit-button">
+                    Edit
+                </button>
+                <button type="submit"
+                        class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent save-button"
+                        disabled>Save
+                </button>
+
+            </div>
+        </div>
+
+    </form>
+</template>

@@ -7,3 +7,8 @@
 // Declare (client) settings on a global object (does not vary by session)
 clientSettings = {};
 
+// Expose clientSettings to all templates
+Template.registerHelper('clientSettings', function(){
+    return clientSettings;
+});
+

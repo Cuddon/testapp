@@ -1,10 +1,9 @@
 /**
- * Created by Andrew on 21/06/2015.
+ * Client settings for Models
+ * Not editable by users
  */
 
-// Settings for Projects
-
-clientSettings.models = {
+clientSettings.model = {
     nameMaxLength: 50,
     descriptionMaxLength: 100,
     modelTypes: [

@@ -16,18 +16,21 @@ Tracker.autorun(function() {
      *  todo: move menu permissions to database and read on startup rather than having a .js file containing all menu permissions
      */
 
-
-    var userData = Meteor.users.findOne({_id: Meteor.userId()});
-
-    if (userData && userData.account && userData.account.type) {
-        // User logged in and account type set
-        // Look up the enabled menus using the account type
-        // Account type e.g. = 100 (Foundation)
-        accountType = userData.account.type;
+    if (Meteor.user()){
+        // A user is logged in
+        var user = Meteor.users.findOne({_id: Meteor.userId()});
+        if (user && user.account && user.account.type) {
+            // Account type is set for this user
+            // Look up the enabled menus using the account type
+            // Account type e.g. = 100 (Foundation)
+            accountType = user.account.type;
+        } else {
+            var accountType = 0;    // No account
+        }
     } else {
-        var accountType = 0;    // No account type if user is not logged in or has no account
+        // User not logged in
+        accountType = 0;    //No account if user is not logged in
     }
-
 
     // Menus enabled for the user's account type
     // enabledMenus e.g. = {home: true, projects: true}

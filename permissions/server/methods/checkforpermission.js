@@ -20,26 +20,23 @@ Meteor.methods({
 
         check(action, String);
 
-        // Current user record
-        var user = Meteor.users.findOne({_id: Meteor.userId()});
+        // Roles allocated to the current user
+        var user = Meteor.users.findOne({_id: Meteor.userId()}, {fields: {roles: 1}});
 
-        if (!user) {
-            // User not found, so decline permission
-            return false;
-        }
-
-        if (!user.roles) {
-            // No roles for the user, so decline permission
+        if (!user || !user.roles) {
+            // User not found or no roles, so decline permission
             return false;
         }
 
         // Iterate through the user's roles and check the desired action against the permissions for each role
         // Stop if the correct permission is found
-        var i, role, permissions, permitted=false;
+        var i, role, permissions;
+        var permitted=false;
+
         for (i = 0; i < user.roles.length; i++) {
             role = user.roles[i];
 
-            // permissions for the role
+            // Look up the permissions for the role
             permissions =  settings.roleBasedPermissions[role];
 
             // check permissions for that role
