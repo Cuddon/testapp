@@ -23,7 +23,7 @@ Meteor.methods({
             name: String,
             description: String,
             type: String,
-            comment: String,
+            notes: String,
             image: String
         });
 
@@ -36,8 +36,8 @@ Meteor.methods({
         }
 
         // Add additional info
-        if (model.icon.trim() === "") {
-            model.icon = "http://lorempixel.com/56/56/nature";     // Default model logo. 56x56 px
+        if (model.image.trim() === "") {
+            model.image = "http://lorempixel.com/56/56/nature";     // Default model logo. 56x56 px
         }
         model.ownerId = this.userId;  // Logged in user is the initial owner
         model.sharedToId = null;          // The model is not shared to anyone yet

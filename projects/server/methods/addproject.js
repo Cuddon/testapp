@@ -22,7 +22,7 @@ Meteor.methods({
         check(project, {
             name: String,
             description: String,
-            comment: String,
+            notes: String,
             image: String
         });
 

@@ -12,11 +12,11 @@ Template.addModel.events({
 
     // Insert a new document into the models collection
     var model = {
-      name:         event.target.modelname.value,
-      description:  event.target.modeldescription.value,
-      type:         event.target.modeltype.value,
-      comment:      event.target.modelcomment.value,
-      image:         event.target.modelImage.value,
+      name:         event.target.name.value,
+      description:  event.target.description.value,
+      type:         event.target.modelType.value,
+      notes:        event.target.notes.value,
+      image:        event.target.imageUrl.value,
       projectId:    projectId
     };
 

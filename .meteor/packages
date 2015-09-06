@@ -12,3 +12,4 @@ iron:router
 accounts-meteor-developer
 zodiase:mdl
 underscore
+momentjs:moment

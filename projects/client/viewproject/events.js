@@ -16,58 +16,37 @@ Template.viewProject.events({
         return false;
     },
 
+    // Notes field is updated
     // Edit button is clicked
-    "click .edit-button": function () {
-
-        // Enable fields for editing
-        $('#projectName').prop('disabled', false);
-        $('#projectDescription').prop('disabled', false);
-        $('#projectComment').prop('disabled', false);
-        $('#projectLogo').prop('disabled', false);
-
-        // Enable the save button and disable the edit button (as we are currently editing the project details)
-        $('.save-button').prop('disabled', false);
-        $('.edit-button').prop('disabled', true);
-
-
-        // Prevent default form action
-        return false;
-    },
-
-    // Save button is clicked
-    "click .save-button": function () {
-
+    "change #notes": function () {
+       // alert("Not implemented");
         var project = {
             _id: this.project._id,
-            name: $('#projectName').val(),
-            description: $('#projectDescription').val(),
-            comment: $('#projectComment').val(),
-            logo: $('#projectLogo').val()
+            notes: $('#notes').val()
         };
 
-        // Call the server method to update the project
-        Meteor.call('updateProject', project, function (error, result) {
+        // Update the notes using a server method
+        Meteor.call('updateProjectNotes', project, function (error) {
             if (error) {
+                // Display the error to the client
                 showError(error.error, error.reason);
-            } else if (result === false) {
-                showError("database-error", 'Error updating your project. Please try again');
             }
         });
 
-        // Disable the fields for editing
-        $('#projectName').prop('disabled', true);
-        $('#projectDescription').prop('disabled', true);
-        $('#projectComment').prop('disabled', true);
-        $('#projectLogo').prop('disabled', true);
-
-        // Disable the save button and enable the edit button (the save button is enabled when we are editing the projec details)
-        $('.save-button').prop('disabled', true);
-        $('.edit-button').prop('disabled', false);
-
         // Prevent default form action
         return false;
     },
 
+
+    // Edit button is clicked
+    "click .edit-button": function () {
+        //alert("Not implemented");
+        var projectId = this.project._id;
+        Router.go('/editproject/' + projectId);
+
+        // Prevent default form action
+        return false;
+    },
 
     // Clone button is clicked
     "click .clone-button": function () {
@@ -106,7 +85,7 @@ Template.viewProject.events({
             Meteor.call('deleteProject', projectId, function (error) {
                 if (error) {
                     // Display the error to the client
-                    showError(error.error, error.reason)
+                    showError(error.error, error.reason);
                 }
             });
         }

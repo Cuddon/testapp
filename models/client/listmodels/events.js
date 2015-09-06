@@ -5,7 +5,7 @@
 Template.listModels.events({
 
     // Add model button is clicked
-    "click .add-model": function () {
+    "click .add-model-button": function () {
         var projectId = this.project._id;
 
         //Open the selected model view/edit template

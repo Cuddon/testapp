@@ -6,7 +6,7 @@ Template.addProject.events({
         var project = {
             name: event.target.name.value,
             description: event.target.description.value,
-            comment: event.target.comment.value,
+            notes: event.target.notes.value,
             image: event.target.image.value
         };
 

@@ -41,32 +41,20 @@
     margin-bottom: 12px;
 }
 
-
-.modal-dialog {
-    position: fixed;
-    top: 60px;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: 9999;
-    -webkit-transition: opacity 400ms ease-in;
-    -moz-transition: opacity 400ms ease-in;
-    transition: opacity 400ms ease-in;
-    pointer-events: none;
+.section_heading {
+    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 14pt;
+    font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 12px;
 }
 
-.modal-dialog-content {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
-    width: 60%;
-    padding: 20px;
-
-    background: white;
-    color: #0277bd;
-
-    z-index: 99999;
+.body_text {
+    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
+    font-size: 12pt;
+    font-weight: 400;
 }
 
+input, textarea {
+    font-size: 5pt;
+}

@@ -23,7 +23,7 @@
                 <button class="upgrade-button mdl-button mdl-js-button mdl-js-ripple-effect">Upgrade</button>
                 <div> Start date: {{account.startDate}}</div>
                 <div> Expires:</div>
-                <div>Member Since: {{account.createdAt}}</div>
+                <div>Member Since: {{formatTime account.createdAt}}</div>
             </div>
         {{/with}}
     </div>
