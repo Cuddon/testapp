@@ -14,7 +14,11 @@ Template.header.events({
     "click .back-button": function () {
 
         if (Router.current().route.getName() === 'projects') {
-            Router.go("/");
+            Router.go("home");
+        } else if (Router.current().route.getName() === 'project') {
+            Router.go("projects");
+        } else if (Router.current().route.getName() === 'addproject') {
+            Router.go("projects");
         } else {
             // Otherwise just go back to the last page
             history.back();

@@ -8,8 +8,8 @@ Template.editProject.events({
 
     // Back button is clicked, go back to the previous screen (typically the user's projects list)
     "click .cancel-button": function () {
-        // TODO: check that that data has not changed and let ask the user if they really want to
 
+        // Original (saved in the database) and updated values
         var original = {
             name: this.project.name,
             description: this.project.description,
@@ -23,6 +23,7 @@ Template.editProject.events({
             image: $('#imageUrl').val()
         };
 
+        // Check if the user has changed anything
         if (!_.isEqual(original, updated)) {
             // Data has changed so ask the user if they really want to cancel
             var conf = confirm("Changes not saved.\nDo you really want to cancel your edits?");

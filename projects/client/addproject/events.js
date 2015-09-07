@@ -7,7 +7,7 @@ Template.addProject.events({
             name: event.target.name.value,
             description: event.target.description.value,
             notes: event.target.notes.value,
-            image: event.target.image.value
+            image: event.target.imageUrl.value
         };
 
         if (project.name === "") {
@@ -33,12 +33,29 @@ Template.addProject.events({
 
     // Cancel button is clicked, go back to projects list
     "click .cancel-button ": function () {
-        //alert("Cancel");
-        // Go back to previous screen
-        //history.back();
-        Router.go("projects");
+        var project = {
+            name: $('#name').val(),
+            description: $('#description').val(),
+            notes: $('#notes').val(),
+            image: $('#imageUrl').val()
+        };
+
+        if (project.name === "" && project.description === "" && project.notes === "" && project.image === "") {
+            // All inputs are empty so ok to cancel
+            Router.go("projects");
+        } else {
+            // At least one input has been entered so ask the user if they really want to cancel
+            var conf = confirm("You have entered some information.\nDo you really want to cancel?");
+            if (conf === true) {
+                // User confirmed yes so just go back to the projects lists without saving the changes
+                Router.go('projects');
+            } else {
+                // Do nothing
+            }
+        }
+
         // Prevent default form action
         return false;
-    },
+    }
 
 });
