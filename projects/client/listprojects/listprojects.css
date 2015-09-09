@@ -1,25 +1,13 @@
 /* CSS declarations go here */
 
-/* Add project Fast Action Button*/
-#add-project-button {
-    position: fixed;
-    display: block;
-    right: 0;
-    top: 0;
-    margin-right: 32px;
-    margin-top: 148px;
-    z-index: 900;
-}
 
 
-.project-item-card {
-    width: 90%; /* 90% of the cell width */
-    margin-bottom: 10%;
-}
-
-.project-item {
-    border-radius: 2px;
+.project-card.mdl-card {
+    width: 100%;        /* 100% of the width of the column/cell */
 }
 
 
 
+.project-card > .mdl-card__supporting-text {
+    height: 60px;
+}

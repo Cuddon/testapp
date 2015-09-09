@@ -1,37 +1,16 @@
 <!-- View  a project -->
 
-<template name="viewProject">
+<template name="viewProject" xmlns="http://www.w3.org/1999/html">
+
+    {{> sectionHeadingRow text2="Project: "}}
 
     <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--1-col">
+        <div class="mdl-cell mdl-cell--2-col">
         </div>
 
-        <div class="mdl-cell mdl-cell--1-col">
-            <h5 class="secondary-text-color section_heading">Project</h5>
-            <!--
-            <div class="golden-ratio-landscape default-paper-color"
-                 style="background: url('{{project.image}}')no-repeat center center; background-size: cover;
-                         opacity: 0.15">
-                <div class="content-no-background">
-                </div>
-            </div>
--->
-        </div>
         <div class="mdl-cell mdl-cell--8-col">
-            <div class="mdl-grid mdl-grid--no-spacing">
-                <div class="mdl-cell mdl-cell--6-col">
-                    <div class="section_heading">{{project.name}}</div>
-                    <h6 class="body_text secondary-text-color">{{project.description}}</h6>
-                </div>
-                <div class="mdl-cell mdl-cell--6-col">
-                    <form action="#">
-                        <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
-                            <textarea class="mdl-textfield__input" type="text" rows="5" maxrows="6" id="notes">{{project.notes}}</textarea>
-                            <label class="mdl-textfield__label" for="notes">Type notes here (automatically saved)</label>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <div class="section_heading">{{project.name}}</div>
+            <div class="body_text secondary-text-color">{{project.description}}</div>
         </div>
 
         <div class="mdl-cell mdl-cell--1-col">
@@ -44,17 +23,35 @@
             <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                 for="view-project-dropdown">
                 <li class="edit-button mdl-menu__item"><i class="material-icons">edit</i> Edit</li>
-                <li class="info-button mdl-menu__item"><i class="material-icons">edit</i> Info</li>
-                <li class="clone-button mdl-menu__item"><i class="material-icons">edit</i> Clone</li>
-                <li disabled class="share-button mdl-menu__item"><i class="material-icons">edit</i> Share</li>
+                <li class="info-button mdl-menu__item"><i class="material-icons">info</i> Info</li>
+                <li class="clone-button mdl-menu__item"><i class="material-icons">content_copy</i> Clone</li>
+                <li disabled class="share-button mdl-menu__item"><i class="material-icons">share</i> Share</li>
                 <li class="delete-button mdl-menu__item"><i class="material-icons">delete</i> Delete</li>
             </ul>
         </div>
-
-        <div class="mdl-cell mdl-cell--1-col">
-        </div>
+    </div>
+    <div class="mdl-cell mdl-cell--1-col">
     </div>
 
+    <!-- Notes -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+
+        <div class="mdl-cell mdl-cell--8-col">
+            <!-- TODO: hide show notes using an icon down/up arrow -->
+            <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-textfield--full-width">
+                        <textarea class="mdl-textfield__input" type="text" rows="5" maxrows="6"
+                                  id="notes">{{project.notes}}</textarea>
+                    <label class="mdl-textfield__label" for="notes">Type notes here (automatically saved)</label>
+                </div>
+            </form>
+        </div>
+
+        <div class="mdl-cell mdl-cell--2-col">
+        </div>
+    </div>
 
     <!-- Models for this project -->
     {{> listModels}}

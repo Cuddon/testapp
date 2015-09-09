@@ -1,34 +1,10 @@
 
 
-
-/* Add model Fast Action Button*/
-#add-model-button {
-    position: fixed;
-    display: block;
-    right: 0;
-    top: 0;
-    margin-right: 32px;
-    margin-top: 240px;
-    z-index: 900;
+.model-card.mdl-card {
+    width: 100%;        /* 100% of the width of the column/cell */
 }
 
 
-.model-item-card {
-   /* width:90%;  */   /* 90% of the cell width */
-    margin-bottom: 10%;
-    margin-right: 10%;
+.model-card > .mdl-card__supporting-text {
+    height: 60px;
 }
-
-
-
-
-/* OLD */
-.model-item-card > .card-title {
-    color: #3c3f41;
-}
-
-.model-item-card > .card-supporting-text {
-    color: #3c3f41;
-    font-size: small;
-}
-

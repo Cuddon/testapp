@@ -42,7 +42,7 @@
     padding-top: 161.8%;  /* 1:1.618 */
 }
 
-.golden-ratio-portrait > .content {
+.golden-ratio-portrait > .golden-ratio-content {
     position: absolute;
     top: 0;
     left: 0;
@@ -63,7 +63,7 @@
     padding-top: 61.8%;  /* 1.618:1 */
 }
 
-.golden-ratio-landscape > .content, .golden-ratio-landscape > .content-no-background {
+.golden-ratio-landscape > .golden-ratio-content, .golden-ratio-landscape > .content-no-background {
     position: absolute;
     top: 0;
     left: 0;
@@ -72,8 +72,8 @@
     padding: 20px 10px 20px 10px;
 }
 
-.golden-ratio-landscape > .content {
-    background: rgba(0, 0, 0, 0.2);
+.golden-ratio-landscape > .golden-ratio-content {
+    background: rgba(0, 0, 0, 0.1);
     border-top-left-radius: 2px;
     border-top-right-radius: 2px;
 }

@@ -7,6 +7,7 @@
 .app-content {
 }
 
+
 .mdl-grid > .mdl-cell {
     border-color: #F5F5F5;    /* Grey 100 */
     border-style: solid;
@@ -44,14 +45,32 @@
 .section_heading {
     font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
     font-size: 14pt;
-    font-weight: 400;
-    margin-top: 24px;
+    font-weight: 500;
+    margin-top: 12px;
     margin-bottom: 12px;
+    display: block;
 }
 
 .body_text {
     font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
     font-size: 12pt;
-    font-weight: 400;
+    font-weight: 300;
+    display: block;
 }
 
+
+.mdl-card__title, .mdl-card__menu {
+    color: #fff;
+}
+
+
+/* Add project Fast Action Button*/
+.FAB-bottom-right {
+    position: fixed;
+    display: block;
+    right: 0;
+    bottom: 0;
+    margin-right: 32px;
+    margin-bottom: 32px;
+    z-index: 9999;
+}

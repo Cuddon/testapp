@@ -5,27 +5,23 @@
 
 <template name="listModels">
 
+    {{> sectionHeadingRow text2="Models"}}
     {{> instructionsRow text2="Click/tap a existing model card or add a new one"}}
 
     <!-- Content Row: List a project's models -->
     <div class="mdl-grid mdl-grid--no-spacing">
-        <div class="mdl-cell mdl-cell--1-col">
-        </div>
-        <div class="mdl-cell mdl-cell--1-col mdl-cell--hide-phone">
-            <h5 class="secondary-text-color section_heading">Models</h5>
+        <div class="mdl-cell mdl-cell--2-col">
         </div>
 
-        <div class="mdl-cell mdl-cell--8-col mdl-cell--10-col-phone">
-            {{#if modelsList}}
-                <div class="mdl-grid mdl-grid--no-spacing">
-                    {{#each modelsList}}
-                        {{> modelItem}}
-                    {{/each}}
-                </div>
-            {{else}}
-                <!-- FIXME: display message if no models -->
-                <p><i class="material-icons">info</i>This project has no buttons. Click/tap the + button to add a model.</p>
-            {{/if}}
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="mdl-grid">
+                {{#each modelsList}}
+                    {{> modelItem}}
+                {{else}}
+                    <p><i class="material-icons">info</i>This project has no models. Click/tap the + button to add a
+                        model.</p>
+                {{/each}}
+            </div>
         </div>
 
         <div class="mdl-cell mdl-cell--2-col">
@@ -36,11 +32,13 @@
 
     <!-- Add model floating button -->
     {{#if isMenuEnabled.modelAdd}}
-        <button id="add-model-button" class="add-model-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color">
+        <button id="add-model-button"
+                class="add-model-button FAB-bottom-right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color">
             <i class="material-icons">add</i>
         </button>
     {{else}}
-        <button class="add-model-button mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color" disabled>
+        <button class="add-model-button FAB-bottom-right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color"
+                disabled>
             <i class="material-icons">add</i>
         </button>
     {{/if}}
@@ -50,20 +48,22 @@
 
 
 <template name="modelItem">
-    <div class="mdl-cell mdl-cell mdl-cell--4-col-desktop mdl-cell--4-col-tablet mdl-cell--12-col-phone">
-        <div class="model-item-card mdl-shadow--2dp">
-            <div class="mdl-card__title golden-ratio-landscape" style="background-image: url('{{image}}')">
-                <div class="content">
-                    <h2 class="mdl-card__title-text">{{name}}</h2>
-                </div>
+
+    <div class="mdl-cell mdl-cell--4-col">
+
+        <div class="model-card mdl-card mdl-shadow--2dp">
+            <div class="model-item mdl-card__title golden-ratio-landscape"
+                 style="background: url('{{image}}') center / cover">
+                <h2 class="mdl-card__title-text golden-ratio-content">{{name}}</h2>
             </div>
-            <div class="mdl-card__supporting-text" style="height: 100%;">
+            <div class="model-item mdl-card__supporting-text">
                 {{description}}
             </div>
         </div>
-    </div>
-</template>
 
+    </div>
+
+</template>
 
 
 

@@ -1,11 +1,19 @@
 <template name="signedIn">
+
     <div class="mdl-grid mdl-grid--no-spacing">
         <div class="mdl-cell mdl-cell--12-col">
             {{> loginButtons}}
         </div>
     </div>
 
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--12-col">
+            <a href="\projects" class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect">Go to Projects List</a>
+        </div>
+    </div>
+
     <div class="mdl-grid mdl-grid--no-spacing">
+
         {{#with currentUser}}
             <div class="mdl-cell mdl-cell--12-col">
                 <div class="section_heading">Account Settings</div>
