@@ -1,32 +1,41 @@
 <template name="listSteps">
-    <div class="section">
-        <h3 class="section-title">Steps</h3>
-        <h5 class="section-subtitle">Select a step or add a new one</h5>
 
-        <!-- Add Step floating button -->
-        {{#if isMenuEnabled.stepAdd}}
-            <button class="add-step mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored"
-                    id="addstep" name="addstep">
-                <i class="material-icons">add</i>
-            </button>
-        {{else}}
-            <button class="add-model mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored "
-                    id="addstep" name="addstep" disabled>
-                <i class="material-icons">add</i>
-            </button>
-        {{/if}}
-        <div class="mdl-tooltip" for="addstep">Add Model</div>
+    {{> sectionHeadingRow text2="Steps"}}
 
+    {{> instructionsRow text2="Click/tap an existing step or add a new one with the + button"}}
+    <!-- Content Row: List a user's projects -->
+    <div class="mdl-grid mdl-grid--no-spacing">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-phone">
+        </div>
 
-        <div class="mdl-grid">
-            {{#each stepList}}
-                {{> stepItem}}
+        <div class="mdl-cell mdl-cell--8-col">
+            <div class="mdl-grid">
+                {{#each stepsList}}
+                    {{> stepItem}}
                 {{else}}
-                <p><i class="material-icons">info</i>Your model has no steps. Click/tap the + button to add a step.</p>
-            {{/each}}
+                    <p><i class="material-icons">info</i>Your model has no steps. Click/tap the + button to add a step.
+                    </p>
+                {{/each}}
+            </div>
+        </div>
 
+        <div class="mdl-cell mdl-cell--2-col">
         </div>
     </div>
+
+    <!-- Add Project floating button -->
+    {{#if isMenuEnabled.stepAdd}}
+        <button id="add-project-button"
+                class="add-project-button FAB-bottom-right mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color">
+            <i class="material-icons">add</i>
+        </button>
+    {{else}}
+        <button class="FAB-bottom-right mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored secondary-accent-color"
+                disabled>
+            <i class="material-icons">add</i>
+        </button>
+    {{/if}}
+
 </template>
 
 <template name="stepItem">

@@ -4,7 +4,9 @@
 
 Meteor.methods({
 
-    deleteAllModelsforProject: function (projectId) {
+    // Delete all models for a project
+    // Does not check if there are any existing steps for this model
+    deleteAllModels: function (projectId) {
 
         if (!Meteor.userId()) {
             // Raise an error and send it to the client
@@ -22,11 +24,11 @@ Meteor.methods({
 
         // Ensure mandatory fields have been completed
         if (!projectId) {
-            throw new Meteor.Error('Error', "Missing model ID.");
+            throw new Meteor.Error('Error', "Missing project ID, when deleting sub models");
         }
 
 
-        // Remove all models for this project that are owned by the curent user
+        // Remove all models for this project that are owned by the current user
         ModelsCollection.remove({
             projectId: projectId,
             ownerId: Meteor.userId()

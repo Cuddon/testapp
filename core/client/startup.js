@@ -11,6 +11,7 @@ Meteor.startup(function () {
         //showError("Error 2", "With a longer description than the first one.");
 
         Session.setDefault('activity', "Home");
+        Session.setDefault('showNotes', false);
     }
 
     if (Meteor.isServer) {

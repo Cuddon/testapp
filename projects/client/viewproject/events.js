@@ -16,8 +16,15 @@ Template.viewProject.events({
         return false;
     },
 
+    "click .toggle-notes-button": function () {
+        // Toggle display/hide of notes
+
+        Session.set("showNotes", !Session.get("showNotes"));
+        // Prevent default form action
+        return false;
+    },
+
     // Notes field is updated
-    // Edit button is clicked
     "change #notes": function () {
        // alert("Not implemented");
         var project = {
@@ -42,7 +49,7 @@ Template.viewProject.events({
     "click .edit-button": function () {
         //alert("Not implemented");
         var projectId = this.project._id;
-        Router.go('/editproject/' + projectId);
+        Router.go('/project/' + projectId + '/edit');
 
         // Prevent default form action
         return false;

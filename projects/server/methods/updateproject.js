@@ -50,9 +50,14 @@ Meteor.methods({
         project['updatedBy'] = Meteor.userId();
         project['updatedAt'] = new Date();    // Date/Time
 
+        // Never update the details of the original creator, so remove them if they exist
+        delete project.createdAt;
+        delete project.createdBy;
+
         // Extract the project ID and remove the id attribute from the project object
         var projectId = project._id;
         delete project._id;
+
 
         ProjectsCollection.update({_id: projectId}, {$set: project}, function (error, docsUpdated) {
             if (error) {

@@ -6,36 +6,38 @@
 Template.editModel.events({
 
     // Close button is clicked, go back to the project with it's models list
-    'click .close-button': function () {
-        //TODO should check if the model has changes befor we just cancel it
+    'click .cancel-button': function () {
+        // Original (saved in the database) and updated values
+        var original = {
+            name: this.model.name,
+            description: this.model.description,
+            notes: this.model.notes,
+            image: this.model.image
+        };
+        var updated = {
+            name: $('#name').val(),
+            description: $('#description').val(),
+            notes: $('#notes').val(),
+            image: $('#imageUrl').val()
+        };
 
-        var projectId = this.project._id;
-
-        Router.go("project", {_id: projectId});
+        // Check if the user has changed anything
+        if (!_.isEqual(original, updated)) {
+            // Data has changed so ask the user if they really want to cancel
+            var conf = confirm("Changes not saved.\nDo you really want to cancel your edits?");
+            if (conf === true) {
+                // User confirmed yes so just go back to viewing the model without saving the changes
+                Router.go('/project/' + this.model.projectId + '/model/' + this.model._id);
+            }
+        } else {
+            // Data has not changed so return to the model
+            Router.go('/project/' + this.model.projectId + '/model/' + this.model._id);
+        }
 
         // Prevent default form action
         return false;
     },
 
-
-    // Edit button is clicked
-    'click .edit-button': function () {
-
-        // Enable fields for editing
-        $('#modelName').prop('disabled', false);
-        $('#modelDescription').prop('disabled', false);
-        $('#modelType').prop('disabled', false);
-        $('#modelComment').prop('disabled', false);
-        $('#modelIcon').prop('disabled', false);
-
-        // Enable the save button and disable the edit button (as we are currently editing the model details)
-        $('.save-button').prop('disabled', false);
-        $('.edit-button').prop('disabled', true);
-
-
-        // Prevent default form action
-        return false;
-    },
 
     // Save button is clicked
     'click .save-button': function () {
@@ -43,11 +45,10 @@ Template.editModel.events({
         var model = {
             _id: this.model._id,
             projectId:  this.project._id,
-            name: $('#modelName').val(),
-            description: $('#modelDescription').val(),
-            type: $('#modelType').val(),
-            comment: $('#modelComment').val(),
-            icon: $('#modelIcon').val()
+            name: $('#name').val(),
+            description: $('#description').val(),
+            notes: $('#notes').val(),
+            image: $('#imageUrl').val()
         };
 
         Meteor.call('updateModel', model, function (error, result) {
@@ -55,19 +56,12 @@ Template.editModel.events({
                 showError(error.error, error.reason);
             } else if (result === false) {
                 showError("database-error", 'Error updating your model. Please try again');
+            } else {
+                // success
+                // Return to viewing the model
+                Router.go('/project/' + model.projectId + '/model/' + model._id);
             }
         });
-
-        // Disable the fields for editing
-        $('#modelName').prop('disabled', true);
-        $('#modelDescription').prop('disabled', true);
-        $('#modelType').prop('disabled', true);
-        $('#modelComment').prop('disabled', true);
-        $('#modelIcon').prop('disabled', true);
-
-        // Disable the save button and enable the edit button (the save button is enabled when we are editing the projec details)
-        $('.save-button').prop('disabled', true);
-        $('.edit-button').prop('disabled', false);
 
         // Prevent default form action
         return false;

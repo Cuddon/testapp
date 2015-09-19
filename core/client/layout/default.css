@@ -35,8 +35,9 @@
 }
 
 .instructions {
-    font-family: "Roboto", "Helvetica", "Arial", "sans-serif";
-    font-size: 10.5pt;
+    /*font-family: "Roboto", "Helvetica", "Arial", "sans-serif";*/
+    font-family: 'Architects Daughter', cursive;
+    font-size: 12pt;
     font-weight: 400;
     margin-top: 24px;
     margin-bottom: 12px;
@@ -56,6 +57,23 @@
     font-size: 12pt;
     font-weight: 300;
     display: block;
+}
+
+.field-name {
+    font-weight: 400;
+    color: #9E9E9E;     /* Grey 500 */
+    display: inline;
+}
+
+.field-name:before {
+    content: ' ';
+    clear: right;
+    display: block;
+}
+
+.field-value {
+    font-weight: 300;
+    display: inline;
 }
 
 

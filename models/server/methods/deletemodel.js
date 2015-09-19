@@ -4,6 +4,7 @@
 
 Meteor.methods({
 
+    // Delete a single model
     deleteModel: function (modelId) {
 
         if (!Meteor.userId()) {

@@ -16,7 +16,7 @@ Router.route('/project/:projectId/model/:_id', {
             // All models for the selected project
             Meteor.subscribe("projects"),
             Meteor.subscribe('models', projectId)
-        ]
+        ];
     },
 
     data: function () {
@@ -27,7 +27,7 @@ Router.route('/project/:projectId/model/:_id', {
         return {
             project: ProjectsCollection.findOne({_id: projectId}, {fields: {_id: 1, name: 1}}),
             model: ModelsCollection.findOne({_id: modelId})
-        }
+        };
     },
 
     action: function () {

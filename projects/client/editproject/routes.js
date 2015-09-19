@@ -1,9 +1,10 @@
 /**
- * Edit a project - routes
+ * Edit a project - route controlller
  */
 
 // Edit a project's details
-Router.route('/editproject/:_id', {
+Router.route('/project/:_id/edit', {
+
     name: 'editproject',
 
     subscriptions: function () {

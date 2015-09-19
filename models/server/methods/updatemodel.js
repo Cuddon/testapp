@@ -17,14 +17,22 @@ Meteor.methods({
             throw new Meteor.Error('not-authorised', "You do not have permission to update models.");
         }
 
+        // Check if the current user is the owner or has been shared the model
+        //todo: Identify if the model is shared and request different permissions
+        var m = ModelsCollection.findOne(model._id);
+        if ( !(m.ownerId === Meteor.userId() || m.sharedToId === Meteor.userId()) ) {
+            // Raise an error and send it to the client
+            throw new Meteor.Error('not-authorised', "You do not have sufficient ownership to update this model.");
+        }
+
+
         // Check that all attributes are of the correct type
         check(model, {
             _id:  String,
             projectId:  String,
             name: String,
             description: String,
-            type:   String,
-            comment: String,
+            notes: String,
             image: String
         });
 
@@ -38,6 +46,15 @@ Meteor.methods({
         if (!model.name) {
             throw new Meteor.Error('mandatory fields', "A model name is mandatory.");
         }
+
+        // Update additional server-side attributes
+        model['updatedBy'] = Meteor.userId();
+        model['updatedAt'] = new Date();    // Date/Time
+
+        // Never update the details of the original creator, so remove them if they exist
+        delete model.createdAt;
+        delete model.createdBy;
+
 
         // Extract the model ID and remove the id attribute from the update object
         var modelId = model._id;

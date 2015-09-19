@@ -4,7 +4,7 @@
 
 Template.header.events({
     "click .home-button": function () {
-        Router.go("/");
+        Router.go("home");
 
         // Prevent default form action
         return false;
@@ -26,7 +26,22 @@ Template.header.events({
 
         // Prevent default form action
         return false;
+    },
+
+    "click .projects-button": function () {
+        Router.go("projects");
+
+        // Prevent default form action
+        return false;
+    },
+
+    "click .profile-button": function () {
+        Router.go("profile");
+
+        // Prevent default form action
+        return false;
     }
+
 
 });
 

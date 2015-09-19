@@ -9,6 +9,8 @@
  Clients call Meteor.subscribe to express interest in document collections published by the server. Clients can further filter these collections of documents by calling collection.find(query). Whenever any data that was accessed by a publish function changes on the server, the publish function is automatically rerun and the updated document collections are pushed to the subscribed client.
 */
 
+//TODO: Are there any model fields that shoudl be hidden from the client?
+
 // Publish all projects owned by the user or shared to them by another user
 Meteor.publish("projects", function () {
     //Check that the user is logged in

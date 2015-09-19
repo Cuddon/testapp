@@ -23,3 +23,4 @@ Meteor.publish("models", function (projectId) {
     });
 });
 
+//TODO: Are there any model fields that shoudl be hidden from the client?

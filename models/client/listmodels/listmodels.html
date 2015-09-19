@@ -1,12 +1,11 @@
 <!--
-    Model Item template (summary for viewing a list of models)
-    Called by the view/Edit project template
+    Model Item template
 -->
 
 <template name="listModels">
 
     {{> sectionHeadingRow text2="Models"}}
-    {{> instructionsRow text2="Click/tap a existing model card or add a new one"}}
+    {{> instructionsRow text2="Click/tap an existing model or add a new one with the + button"}}
 
     <!-- Content Row: List a project's models -->
     <div class="mdl-grid mdl-grid--no-spacing">
@@ -18,8 +17,7 @@
                 {{#each modelsList}}
                     {{> modelItem}}
                 {{else}}
-                    <p><i class="material-icons">info</i>This project has no models. Click/tap the + button to add a
-                        model.</p>
+                    <p><i class="material-icons">info</i>This project has no models. Click/tap the + button to add one.</p>
                 {{/each}}
             </div>
         </div>
